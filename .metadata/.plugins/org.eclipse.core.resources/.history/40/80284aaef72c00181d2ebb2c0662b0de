@@ -1,0 +1,48 @@
+package com.bridgeit.datastructures;
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+
+public class UnorderedList
+{
+	public static void main(String[] args)
+	{
+		ArrayList<String> list= new ArrayList<String>();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the text file :");
+	    String st = sc.nextLine();
+	    String[] words = st.split(" ");
+	    int count=words.length;
+	    System.out.println("the total number of words are : "+count);
+	    list.add(st);
+	    System.out.println("Original linked list:" + list);
+	    System.out.println("enter a word to search in a array list :");
+	    String s = sc.next();
+	    for (String item : list)
+        {
+
+            // If String is not in set, add it to the list and the set.
+            if (!list.contains(item))
+            {
+                list.add(item);
+                list.add(item);
+            }
+        
+	      
+	    else
+	    {
+	     System.out.println("search is find!");
+	     list.remove(s);
+	     
+	    }
+            System.out.println("Original linked list:" + list);
+        }   
+	      
+     }  
+	
+	
+}

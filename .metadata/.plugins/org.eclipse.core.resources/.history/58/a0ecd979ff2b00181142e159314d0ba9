@@ -1,0 +1,30 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Findnumber
+
+{ 
+	
+		public static void main(String[] args)
+		{
+			Util util=new Util();
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter the number you want to find");
+			int number=sc.nextInt();
+			int k = Integer.parseInt(args[number]);
+		    int n = (int) Math.pow(2, k);
+		    
+		    boolean check=sc.hasNextBoolean();
+		    System.out.println("Think of an integer between 0 to n");
+		    int secret =util. search(0, n-1,check);
+		    System.out.println(secret);
+		    }
+
+        
+      
+	 
+
+}

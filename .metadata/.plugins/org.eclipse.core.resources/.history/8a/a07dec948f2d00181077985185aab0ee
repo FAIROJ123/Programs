@@ -1,0 +1,29 @@
+package com.bridgeit.datastructures;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class BalancedParanthesis 
+{
+	public static void main(String[] args) 
+    {
+		Util util=new Util();
+		Scanner sc=new Scanner(System.in);
+        char exp[] = {'{','(',')','}','[',']'};
+        boolean rs=util.areParenthesisBalanced(exp);
+          if (rs)
+          {
+            System.out.println("Balanced ");
+          }
+          else
+          {
+        	  System.out.println("not balanced");
+            
+          }
+    }
+ 
+				
+	
+
+}

@@ -1,0 +1,9 @@
+package com.bridgeit.algorithms;
+
+public class inarySearch 
+{
+ public static void main(String[] args) 
+ {
+	
+}
+}

@@ -1,0 +1,11 @@
+package com.bridgeit.algorithms;
+
+import com.bridgeit.utillity.Util;
+import java.util.Scanner;
+
+public class Temparature
+{
+	Util util=new Util();
+	Scanner sc=new Scanner(System.in);
+
+}

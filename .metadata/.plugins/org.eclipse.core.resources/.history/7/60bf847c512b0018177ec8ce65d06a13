@@ -1,0 +1,24 @@
+package com.bridgeit.algorithms;
+
+import java.util.Comparator;
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class InsertionSortGeneric
+{
+  public static void main(String[] args) 
+  {
+	Util util=new Util();
+	Scanner scanner=new 
+    util.display(arr);
+	util.insertionSortGeneric(arr,c);
+    util.display(arr);
+    util.display(st);
+    util.insertionSortGeneric(st);
+    util.display(st);
+	
+  }
+
+
+}

@@ -1,0 +1,22 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class DecimalToBinary 
+{
+	public static void main(String[] args)
+	{
+		Util util=new Util();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter a number to convert into binary");
+		int n=sc.nextInt();
+		
+		util.convertBinary(n);
+		
+	}
+
+	
+
+}

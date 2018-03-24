@@ -1,0 +1,24 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Calender
+{
+  public static void main(String[] args) 
+  {
+	  Util util=new Util();
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Month");
+    int month = sc.nextInt();
+    System.out.println("Day");
+    int day = sc.nextInt();
+    System.out.println("Year");
+    int year = sc.nextInt();
+    sc.close();
+    util.dayOfWeek(month, day, year);
+    
+  }
+  
+}

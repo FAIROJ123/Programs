@@ -1,0 +1,24 @@
+package com.bridgeit.algorithms;
+
+import java.util.Comparator;
+
+import com.bridgeit.utillity.Util;
+
+public class InsertionSortGeneric
+{
+  public static void main(String[] args) 
+  {
+	Util util=new Util();
+	Integer[] arr = {9,8,7,6,5,4,3,2,1};
+    String[] st= {"hello","hai","fairu"};
+    util.display(arr);
+   
+	Comparator c = compare(T obj1,T obj2);
+	util.insertionSortGeneric(arr,c);
+    util.display(arr);
+    util.display(st);
+    util.insertionSortGeneric(st,c);
+    util.display(st);
+	
+  }
+}

@@ -1,0 +1,23 @@
+package com.bridgeit.algorithms;
+
+
+
+
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Binarysearchstrings 
+{
+ 
+	
+       Util util=new Util();
+	   Scanner sc=new Scanner(System.in);  
+
+	  
+
+
+ 
+       
+}

@@ -1,0 +1,16 @@
+INDEX VERSION 1.130+/home/bridgeit/Documents/workspace-sts-3.9.2.RELEASE/.metadata/.plugins/org.eclipse.jdt.core
+791340016.index
+3255117007.index
+460697493.index
+3481408369.index
+2535813298.index
+3872469082.index
+3894228938.index
+59746512.index
+1726333832.index
+1437415504.index
+2209239185.index
+3157832121.index
+2605267282.index
+1526192422.index
+2041438476.index

@@ -1,0 +1,42 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class BubblesortGeneric 
+{
+	public static <E> void main(String[] args) 
+	{
+		Util util=new Util();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter number of elements");
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        String arr1[]=new String[n];
+        
+        System.out.println("enter integer elements");
+        
+        for(int i=0;i<n;i++)
+        {
+            arr1[i]=(E) sc.next();
+
+        }
+        
+
+        for(E i: arr1)
+        { 
+
+            System.out.println(i);
+
+        }
+        
+        
+        
+        util.bubbleSort(arr1);
+        util.display(arr1);
+       
+        util.bubbleSort(arr1);
+       util.display(arr1);
+    }
+}

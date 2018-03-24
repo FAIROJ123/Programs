@@ -1,0 +1,54 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Findnumber
+
+{ 
+	
+		public static void main(String[] args)
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the number you want to find");
+			int n=sc.nextInt();
+			int result = 1,N;
+			boolean check;
+			for(int i=1;i<=n;i++)
+			{
+				result = result*2;
+			}
+			N = result;
+			System.out.println("Imagine the number between 1 to "+N);
+			int first = 1;
+			int last = N/2;
+			int i=2,j=4;
+			//To perform n Number of trials
+			for(int k=1;k<n;k++){
+				System.out.println("Is Your number Present Between "+first+" to "+last+"??\ntrue or false");
+				check = sc.nextBoolean();
+				if(check){
+				      N=N/2;
+				      last = last-((last-first+1)/2);
+			
+				}
+				else{
+					first = first+N/i;
+					last = last+N/j;
+					i = i+i;
+					j = j+j;	
+				}
+			}
+			System.out.println("Is Your number is "+first+"?? \ntrue or false");
+			check = sc.nextBoolean();
+			if(check)
+				System.out.println("Your number is: "+(first));
+			else
+				System.out.println("Your number is: "+(last+1));
+	}
+        
+      
+	
+
+}

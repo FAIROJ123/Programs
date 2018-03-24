@@ -1,0 +1,27 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class VendingMachine 
+{
+	static int total=0;
+	public static void main(String[] args)
+	{
+		Util util=new Util();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter value of Change to be Returned");
+		//To read the integer value from the keyboard.
+		int value = sc.nextInt();
+		System.out.println("change Values:");		
+		if(value != 0)
+			util.function(value);
+		else
+		System.out.println("No Change");
+		System.out.println("\nTotal No. of notes: "+total);
+			
+	}
+	
+
+}

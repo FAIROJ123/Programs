@@ -1,0 +1,23 @@
+package com.bridgeit.algorithms;
+
+import java.util.Scanner;
+
+public class Monthlypayment 
+{
+	public static void main(String[] args)
+	{
+		
+	
+	Scanner sc = new Scanner(System.in);
+
+    System.out.print("Enter loan amount: ");
+    int loanAmount = sc.nextInt();
+
+    System.out.print("Enter loan term (in years): ");
+    int years = sc.nextInt();
+
+    System.out.print("Enter interest rate: ");
+    double interestRate = sc.nextDouble();
+
+}
+}
