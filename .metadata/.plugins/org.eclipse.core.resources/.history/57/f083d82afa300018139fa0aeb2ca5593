@@ -1,0 +1,28 @@
+package com.bridgtit.objectorientedprograms;
+
+import java.util.Scanner;
+
+public class Json 
+{
+public static void main(String[] args)
+{
+	
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the wheet name:");
+	String name=sc.nextLine();
+	System.out.println("Enter the wheet cost per kg:");
+	double cost=sc.nextDouble();
+	
+	System.out.println("Enter the wheet weight:");
+	double weight=sc.nextDouble();
+	System.out.println("Enter the pulses name:");
+	String name1=sc.nextLine();
+	System.out.println("Enter the pulses cost per kg:");
+	double cost1=sc.nextDouble();
+	
+	System.out.println("Enter the pulses weight:");
+	double weight1=sc.nextDouble();
+	
+	
+}
+}

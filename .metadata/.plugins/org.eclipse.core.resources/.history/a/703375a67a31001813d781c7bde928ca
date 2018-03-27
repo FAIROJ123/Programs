@@ -1,0 +1,50 @@
+package com.bridgtit.objectorientedprograms;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+
+public class Json 
+{
+
+
+public static void main(String[] args)
+{
+	
+	
+	Scanner sc=new Scanner(System.in);
+	JSONObject obj = new JSONObject();
+	System.out.println("enter the wheet name:");
+	String name=sc.nextLine();
+	System.out.println("enter the wheet cost:");
+	int cost=sc.nextInt();
+	System.out.println("enter the wheet weight:");
+	int weight=sc.nextInt();
+	System.out.println("enter the pulses name:");
+	String name1=sc.nextLine();
+	System.out.println("enter the pulses cost:");
+	int cost1=sc.nextInt();
+	System.out.println("enter the pulses weight:");
+	int weight1=sc.nextInt();
+	System.out.println("enter the raice name:");
+	String name2=sc.nextLine();
+	System.out.println("enter the raice cost:");
+	int cost2=sc.nextInt();
+	System.out.println("enter the raice weight:");
+	int weight2=sc.nextInt();
+	
+	obj.put("name", name);
+	obj.put("cost", cost);
+	obj.put("weight", weight);
+	
+
+	 }
+
+	
+
+}

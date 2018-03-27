@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.StandardSocketOptions;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -27,79 +28,72 @@ public class Util {
 	private boolean running;
 	private long startTime;
 	private long stopTime;
+	private static int numDays = 0;
+	private static int h = 0;
+	BufferedReader br, rf = null;
 
-	
-
-	BufferedReader br,rf = null;
-
-	//Utility constructor for creating object for BufferedReader
-	public Util(){
+	// Utility constructor for creating object for BufferedReader
+	public Util() {
 		br = new BufferedReader(new InputStreamReader(System.in));
 	}
-	
-	//input string
-	public String inputString(){
-		try{
+
+	// input string
+	public String inputString() {
+		try {
 			return br.readLine();
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return "";
 	}
-	
-	//input Integer
-	public int inputInteger(){
-		try{
+
+	// input Integer
+	public int inputInteger() {
+		try {
 			return Integer.parseInt(br.readLine());
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return 0;
 	}
 
-	//input double
-	public double inputDouble(){
-		try{
+	// input double
+	public double inputDouble() {
+		try {
 			return Double.parseDouble(br.readLine());
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
-		}new BufferedReader(new InputStreamReader(System.in));
+		}
+		new BufferedReader(new InputStreamReader(System.in));
 		return 0.0;
 	}
 
-
-	//input boolean
-	public boolean inputBoolean(){
-		try{
+	// input boolean
+	public boolean inputBoolean() {
+		try {
 			return Boolean.parseBoolean(br.readLine());
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
 	}
 
-	//taking integer array input
-	public Integer[] inputIntArray(int size){
-		Integer array[] = new Integer[size];
-		for(int i=0;i<size;i++){
-			System.out.print("Please enter Element at "+(i+1)+" position: ");
-			array[i] = this.inputInteger();
-		}
-		return array;
-}
-
-	/*public Integer[] inputIntArray(int size) throws NumberFormatException, IOException {
+	// taking integer array input
+	public Integer[] inputIntArray(int size) {
 		Integer array[] = new Integer[size];
 		for (int i = 0; i < size; i++) {
 			System.out.print("Please enter Element at " + (i + 1) + " position: ");
 			array[i] = this.inputInteger();
 		}
 		return array;
-	}*/
+	}
+
+	/*
+	 * public Integer[] inputIntArray(int size) throws NumberFormatException,
+	 * IOException { Integer array[] = new Integer[size]; for (int i = 0; i < size;
+	 * i++) { System.out.print("Please enter Element at " + (i + 1) +
+	 * " position: "); array[i] = this.inputInteger(); } return array; }
+	 */
 
 	// taking String array input
 	public String[] inputStringArray(int size) {
@@ -207,18 +201,9 @@ public class Util {
 
 	// replace the string with new string.
 
-	public int replace() {
-		String st = "Hello <<username>>,How r u?";
-		String replaceString = st.replace("<<username>>", "fairu");
-		System.out.println(replaceString);
-
-		return 0;
-
-	}
-
 	// find the given year is leap year or not.
 
-	public boolean isLeapYear(int n) {
+	public static boolean isLeapYear(int n) {
 		boolean leap = false;
 
 		if (n % 4 == 0) {
@@ -271,7 +256,7 @@ public class Util {
 
 	public void prime(int n) {
 		int i = 2;
-		while (n >= i * i)// instead of i<=n
+		while (n >= i)// instead of i<=n
 		{
 			if (n % i == 0) {
 				System.out.print(i + " ");
@@ -315,7 +300,7 @@ public class Util {
 		}
 	}
 
-	// coupon number program.
+	// coupon number
 
 	public static int getCoupon(int n) {
 		return (int) (Math.random() * n);
@@ -346,8 +331,10 @@ public class Util {
 
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
+				int x = (i + 1) * (j + 1);
+				arr[i][j] = x;
 
-				System.out.print(arr[i][j] + " ");
+				System.out.print(" " + x + " ");
 
 			}
 			System.out.println();
@@ -572,19 +559,26 @@ public class Util {
 
 	// Anagram or not.
 
-	public boolean isAnagram(String s1, String s2) {
+	public void isAnagram(String s1, String s2) {
+		// Removing white spaces from
+		String str1 = s1.replaceAll("\\s", "");
+		String str2 = s2.replaceAll("\\s", "");
+		boolean status = true;
 
-		if (s1.length() != s2.length())
-			return false;
-		else {
-			for (int i = 0; i < s1.length(); i++) {
-				if (s2.indexOf(s1.charAt(i)) == -1)
-					return false;
-			}
+		if (str1.length() != str2.length()) {
+			status = false;
+		} else {
+			char[] s1Array = str1.toLowerCase().toCharArray();
+			char[] s2Array = str2.toLowerCase().toCharArray();
+			Arrays.sort(s1Array);
+			Arrays.sort(s2Array);
+			status = Arrays.equals(s1Array, s2Array);
 		}
-
-		return true;
-
+		if (status) {
+			System.out.println(s1 + " and " + s2 + " are anagrams");
+		} else {
+			System.out.println(s1 + " and " + s2 + " are not anagrams");
+		}
 	}
 
 	// prime numbers between the range 1-1000.
@@ -661,12 +655,6 @@ public class Util {
 	}
 
 	// prime Anagram.
-
-	public void primeAnagram() 
-	{
-		
-		
-   }
 
 	// Binarsearch for searchiong a word..
 
@@ -796,23 +784,62 @@ public class Util {
 
 	// Merge Sort of Strings.
 
-	public static void mergeSort(String[] names) {
-		if (names.length > 2) {
-			String[] left = new String[names.length / 2];
-			String[] right = new String[names.length - names.length / 2];
+	void merge(int arr[], int l, int m, int r) {
 
-			for (int i = 0; i < left.length; i++) {
-				left[i] = names[i];
+		int n1 = m - l + 1;
+		int n2 = r - m;
+
+		int L[] = new int[n1];
+		int R[] = new int[n2];
+
+		for (int i = 0; i < n1; ++i)
+			L[i] = arr[l + i];
+		for (int j = 0; j < n2; ++j)
+			R[j] = arr[m + 1 + j];
+
+		int i = 0, j = 0;
+
+		int k = l;
+		while (i < n1 && j < n2) {
+			if (L[i] <= R[j]) {
+				arr[k] = L[i];
+				i++;
+			} else {
+				arr[k] = R[j];
+				j++;
 			}
-
-			for (int i = 0; i < right.length; i++) {
-				right[i] = names[i + names.length / 2];
-			}
-
-			mergeSort(left);
-			mergeSort(right);
-			merge(names, left, right);
+			k++;
 		}
+
+		while (i < n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
+		}
+
+		while (j < n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+
+	public void sort(int arr[], int l, int r) {
+		if (l < r) {
+			int m = (l + r) / 2;
+
+			sort(arr, l, m);
+			sort(arr, m + 1, r);
+
+			merge(arr, l, m, r);
+		}
+	}
+
+	public void printArray(int arr[]) {
+		int n = arr.length;
+		for (int i = 0; i < n; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
 	}
 
 	public static void merge(String[] names, String[] left, String[] right) {
@@ -830,27 +857,18 @@ public class Util {
 	}
 
 	// Find a number.
-/*
-	public static int search(int low, int power) {
-
-		if (low < power) {
-			return -1;
-		}
-		if (low == power) {
-			return low;
-		}
-		int middle = (low + power) / 2;
-		System.out.println("your number between " + low + "to" + middle);
-
-		boolean rs = true;
-		System.out.println("if yes means type true or no means type false");
-		if (rs == inputBoolean()) {
-			power = middle;
-		} else {
-			low = middle + 1;
-		}
-		return search(low, power);
-	}*/
+	/*
+	 * public static int search(int low, int power) {
+	 * 
+	 * if (low < power) { return -1; } if (low == power) { return low; } int middle
+	 * = (low + power) / 2; System.out.println("your number between " + low + "to" +
+	 * middle);
+	 * 
+	 * boolean rs = true;
+	 * System.out.println("if yes means type true or no means type false"); if (rs
+	 * == inputBoolean()) { power = middle; } else { low = middle + 1; } return
+	 * search(low, power); }
+	 */
 
 	// Vending Machine.
 	static int total = 0;
@@ -1006,19 +1024,139 @@ public class Util {
 		return true;
 	}
 
-	
-	
+	// calender.java.
 
-	
-	
+	public static int day(int month, int day, int year) {
+		int y = year - (14 - month) / 12;
+		int x = y + y / 4 - y / 100 + y / 400;
+		int m = month + 12 * ((14 - month) / 12) - 2;
+		int d = (day + x + (31 * m) / 12) % 7;
+		return d;
+	}
 
+	public static boolean leapYear(int year) {
+		if ((year % 4 == 0) && (year % 100 != 0))
+			return true;
+		if (year % 400 == 0)
+			return true;
+		return false;
+	}
 
-//prime anargram numbers added into the stack.
+	// weekdays
 
+	public static int dayCode(int year, int months) {
+		int m, x, d, y;
+		int day = 1;
+		y = year - (14 - months) / 12;
+		x = y + y / 4 - y / 100 + y / 400;
+		m = months + 12 * ((14 - months) / 12) - 2;
+		d = (day + x + (31 * m) / 12) % 7;
 
+		return d;
+	}
 
-	
-	
+	public static void store(int daycode, int months) {
+		LinkList list = new LinkList();
+		char week[] = { ' ', 'S', 'M', 'T', 'W', 'T', 'F', 'S' };
+		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int k = 1;
+		for (int i = 1; i <= day[months]; i++) {
+			list.insert(i, week[k]);
+			k++;
+			if ((i + daycode) % 7 == 0 || i == day[months]) {
+				k = 1;
+			}
+		}
+		list.display();
+	}
+
+	public static void print(int year, int d, int months) {
+		int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+		System.out.println("     " + month[months] + " " + year);
+		System.out.println("su mo tu we th fr sat");
+		for (int i = 0; i < d; i++) {
+			System.out.print("   ");
+		}
+		for (int i = 1; i <= day[months]; i++) {
+			System.out.printf("%2d ", i);
+
+			if (((i + d) % 7 == 0) || (i == day[months])) {
+				System.out.println();
+			}
+		}
+	}
+
+	static LinkList list = new LinkList();
+	static String month[] = { " ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	static int day[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	static char week[] = { ' ', 'S', 'M', 'T', 'W', 'T', 'F', 'S' };
+	static int months;
+
+	//
+	public boolean primeNum(int num) {
+		for (int i = 2; i < num; i++) {
+			if (num % i == 0) {
+				return false;
+			}
+
+		}
+		return true;
+	}
+
+	public boolean anagramNum(int num, int num1) {
+		String str1 = "";
+		String str2 = "";
+		str1 = String.valueOf(num);
+		str2 = String.valueOf(num1);
+		char[] charFromWord = str1.toCharArray();
+		char[] charFromAnagram = str2.toCharArray();
+		Arrays.sort(charFromWord);
+		Arrays.sort(charFromAnagram);
+		return Arrays.equals(charFromWord, charFromAnagram);
+
+	}
+
+	public LinkedList<Integer> primeNumber(int start, int end) {
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int a = start; a < end; a++) {
+			int number = a;
+			int count = 0;
+			for (int i = 1; i <= number; i++) {
+				count = 0;
+				for (int j = 2; j <= i / 2; j++) {
+					if (i % j == 0) {
+						count++;
+						break;
+					}
+				}
+			}
+			if (count == 0) {
+				list.add(a);
+			}
+		}
+
+		return list;
+
+	}
+
+	public boolean anagram(int number, int number2) {
+		String string = Integer.toString(number);
+		char[] charArray = string.toCharArray();
+		String string2 = Integer.toString(number2);
+		char[] charArray2 = string2.toCharArray();
+		Arrays.sort(charArray);
+		Arrays.sort(charArray2);
+		string = new String(charArray);
+		string = new String(charArray2);
+		if (string.length() == string2.length()) {
+			if (string.equals(string2)) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}
+
 }
-	
-

@@ -17,8 +17,14 @@ public class LeapYear {
 		Scanner sc= new Scanner(System.in);
 	    System.out.println("enter a year");
 	    int n=sc.nextInt();
-	    util.isLeapYear(n);
-	   
+	    String st=Integer.toString(n);
+	    int a=st.length();
+	    if(a>3)
+	    {
+	     util.isLeapYear(n);
+	    }
+	    else
+	    	System.out.println("invalid year");
 		
 		
 	}

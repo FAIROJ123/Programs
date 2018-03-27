@@ -19,9 +19,15 @@ public static void main(String[] args)
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("enter a number");
 	    int n=sc.nextInt();
-	    util.power(n);
-	    	  
-	    	  
+	    if(n>=0&&n<31)
+	    {
+	       util.power(n);
+	    }
+	       
+	       else
+	       {
+	    	   System.out.println("invalid integer");
+	       }
 	    	  
 	    
 	      }

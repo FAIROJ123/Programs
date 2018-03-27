@@ -44,7 +44,7 @@ public class BalancedParanthesis {
 					int p = (int) stk.pop() + 1;
 
 					System.out.println("')' at index " + (i + 1) + " matched with ')' at index " + p);
-
+					System.out.println("paranthesis are matched");
 				}
 
 				catch (Exception e)
@@ -64,4 +64,5 @@ public class BalancedParanthesis {
 			System.out.println("'(' at index " + ((int) stk.pop() + 1) + " is unmatched");
 
 	}
+	
 }

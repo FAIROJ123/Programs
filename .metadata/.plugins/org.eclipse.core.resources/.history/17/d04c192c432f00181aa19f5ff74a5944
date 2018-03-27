@@ -1,0 +1,36 @@
+package com.bridgeit.datastructures;
+
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Calender
+{
+	public static void main(String[] args)
+		    {
+		        Util util=new Util();
+		
+		        Scanner input = new Scanner(System.in);
+		        System.out.print("Enter month (1-12): ");
+		        int month = input.nextInt();
+		        if(month < 1 || month > 12)
+		        {
+		            System.out.println("Invalid month. Valids inputs are 1-12.");
+		            System.exit(0);
+		        }
+		        System.out.print("Enter year: ");
+		        int year = input.nextInt();
+		        if(year < 1753)
+		        {
+		            System.out.println("Invalid year. Valid inputs are 1753 and beyond.");
+		            System.exit(0);
+		        }
+		         util.isLeapYear(n);
+		         util.firstDayOfYear(year);
+		         util.firstDayOfMonth(month, year);
+		         util.numDaysInMonth(month, year);
+		         util.  printCal(month, year);
+		    }
+
+	    
+}

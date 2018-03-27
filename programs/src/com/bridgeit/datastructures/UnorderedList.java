@@ -13,7 +13,7 @@ public class UnorderedList
 		
 		Util u = new Util();
 		UnOrderNode node = new UnOrderNode();
-		File file = new File("/home/bridgeit/Desktop/unorderdList.txt");
+		File file = new File("/home/bridgeit/Desktop/test.txt");
 		String string = u.readFile(file);
 		System.out.println("File Contents are: "+string);
 		string = string.trim();

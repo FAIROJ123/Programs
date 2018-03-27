@@ -1,0 +1,39 @@
+package com.bridgeit.datastructures;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+import com.bridgeit.utillity.Util;
+
+public class Prime2D 
+{
+	public static void main(String args[])
+	   {
+	       Util util=new Util();
+	       
+	       Scanner sc=new Scanner(System.in);
+	 
+	       System.out.print("Enter the number of rows: ");
+	       int m=sc.nextInt();
+	       System.out.print("Enter the number of columns: ");
+	       int n=sc.nextInt();
+	       int [][] array = new int [2][2];
+	       int N =10;
+	           for (int num = 2; num <= N; num++) {
+	                   for (int i = 0; i < array.length; i++){ 
+	                       for (int j = 0; j < array.length; j++){ 
+	                           if(util.isPrime(num)){
+	                               array[i][j] = num;
+	                       }
+	                   }
+	               }
+	           }
+	           for (int i = 0; i < 2; i++)
+	               for (int j = 0; j < 2; j++){
+	                   System.out.print(array[i][j] + " ");
+	               }
+	               System.out.println();
+	       }
+	      
+}

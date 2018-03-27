@@ -58,6 +58,9 @@
 		<item value="276" key="size.y"/>
 		<item value="401" key="size.x"/>
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="JavaElementSearchActions">

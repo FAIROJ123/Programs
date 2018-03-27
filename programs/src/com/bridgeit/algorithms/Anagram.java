@@ -22,17 +22,10 @@ public class Anagram
 		Util util=new Util();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter a first string:");
-		String s1=sc.next();
+		String s1=sc.nextLine();
         System.out.println("enter the second string:");
-        String s2=sc.next();
-		boolean rs=util.isAnagram(s1,s2);
-		if(rs)
-		{
-			System.out.println("the given strings are Anagram");
-		}
-		else
-			System.out.println("the given strings are not a Anagram");
-        
+        String s2=sc.nextLine();
+		util.isAnagram(s1,s2);
 		
 	}
 

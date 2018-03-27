@@ -9,6 +9,7 @@
 
 package com.bridgeit.functional;
 import java.util.Random;
+
 import java.util.Scanner;
 
 import com.bridgeit.utillity.Util;
@@ -24,8 +25,12 @@ public class Flipcoin {
 		Scanner scanner=new Scanner(System.in);
 	    System.out.println("enter a number for flip");
 	    int n=scanner.nextInt();
+	    if(n>=0)
+	    {
 	    util.flip(n);
-	    
+	    }
+	    else
+	    	System.out.println("invalid integer");
 	    
 	
 	
