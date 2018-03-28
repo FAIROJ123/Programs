@@ -1,3 +1,11 @@
+/* @Purpose:find the prime numbers that are in the range1-1000. 
+
+ * @Author:S.Fairoj.
+  
+ * @Date:22/3/2018
+ * */
+
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;

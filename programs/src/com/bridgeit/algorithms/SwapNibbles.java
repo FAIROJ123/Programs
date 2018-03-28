@@ -1,4 +1,8 @@
+
+
+
 /*
+
  * @Purpose:Write Binary.java to read an integer as an Input, convert to Binary using toBinary function and perform the following functions.
      i. Swap nibbles and find the new number.
      ii. Find the resultant number is the number is a power of 2.

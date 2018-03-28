@@ -1,3 +1,17 @@
+
+
+
+
+
+
+/* @Purpose:Ordered Node Methods.
+ 
+ * @Author:S.Fairoj.
+  
+ * @Date:24/3/2018
+ * */
+
+
 package com.bridgeit.datastructures;
 
 import java.util.Scanner;

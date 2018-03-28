@@ -1,3 +1,13 @@
+
+
+/* @Purpose:Number of Binary Search Tree.
+ 
+
+ * @Author:S.Fairoj.
+  
+ * @Date:25/3/2018
+ * */
+
 package com.bridgeit.datastructures;
 
 public class BinaryTreeNode 

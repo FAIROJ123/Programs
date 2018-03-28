@@ -3,7 +3,7 @@ package com.bridgeit.objectorientedprograms;
 import java.util.ArrayList;
 
 import com.bridgeit.utillity.Util;
-
+import java.lang.String;
 public class DoctorsInfo 
 {
 	Util u = new Util();

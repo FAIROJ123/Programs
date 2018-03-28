@@ -1,3 +1,14 @@
+
+
+/* @Purpose: Create a Program which creates Banking Cash Counter where people come in to deposit Cash and withdraw Cash. Have an input panel to add people to Queue to either deposit or withdraw money and dequeue the people. Maintain the Cash Balance.
+
+
+ * @Author:S.Fairoj.
+  
+ * @Date:24/3/2018
+ * */
+
+
 package com.bridgeit.datastructures;
 
 import java.util.Scanner;

@@ -1,3 +1,15 @@
+
+
+
+
+/*
+ *  @Purpose:Create a Slot of 10 to store Chain of Numbers that belong to each Slot to efficiently search a number from a given set of number.
+
+ * @Author:S.Fairoj.
+  
+ * @Date:26/3/2018
+ * */
+
 package com.bridgeit.datastructures;
 
 import java.io.File;

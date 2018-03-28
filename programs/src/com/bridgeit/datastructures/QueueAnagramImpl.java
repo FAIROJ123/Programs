@@ -1,3 +1,13 @@
+
+
+
+/* @Purpose:Queue Anagram Implementation.
+ 
+ * @Author:S.Fairoj.
+  
+ * @Date:26/3/2018
+ * */
+
 package com.bridgeit.datastructures;
 
 import javax.xml.soap.Node;

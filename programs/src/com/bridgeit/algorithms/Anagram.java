@@ -1,5 +1,6 @@
 
 /*
+ 
  * @Purpose:One string is an anagram of another if the second is simply a rearrangement of the first. For example, 'heart' and 'earth' are anagrams...
  
  *@Author:S.Fairoj.

@@ -1,3 +1,13 @@
+
+
+/* @Purpose:Queue Implementation.
+ 
+ * @Author:S.Fairoj.
+  
+ * @Date:26/3/2018
+ * */
+
+
 package com.bridgeit.datastructures;
 
 import java.util.NoSuchElementException;

@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+/*
+ * @Purpose:program to find the prime numbers that are Anagram.
+
+ * @Author:S.Fairoj.
+  
+ * @Date:23/3/2018
+ * */
+
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;

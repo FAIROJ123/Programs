@@ -1,3 +1,13 @@
+
+
+
+/*
+ * @Purpose:Simple balanced paranthesis.
+ * @Author:S.Fairoj.
+  
+ * @Date:23/3/2018
+ * */
+
 package com.bridgeit.datastructures;
 
 import java.util.Scanner;

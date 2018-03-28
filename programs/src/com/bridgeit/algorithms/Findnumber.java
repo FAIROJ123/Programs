@@ -1,3 +1,13 @@
+
+
+/*
+ * @Purpose:Binary Search the Word from Word List
+
+ * @Author:S.Fairoj.
+  
+ * @Date:19/3/2018
+ * */
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;
@@ -9,17 +19,16 @@ public class Findnumber
 {
 
 	public static void main(String[] args) {
-		Util util = new Util();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("enter the element you want to find");
-		int n = sc.nextInt();
-
-		int power = (int) Math.pow(2, n) - 1;
+		Util utility = new Util();
+		System.out.println("enter number");
+		int number = utility.inputInteger();
+		int power = (int) Math.pow(2, number) - 1;
 		int low = 0;
-		
-		System.out.println("your number is present between" + low + "to" + power);
-		util.binarySearch(a, lo, hi);
-		System.out.println("your assume number is" + n);
+		System.out.println("assume the number between " + low + " to " + power);
+
+		int value = utility.questionNumber(low, power);
+		System.out.println("your asumed number is " + value);
+
 
 	}
 

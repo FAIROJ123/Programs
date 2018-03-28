@@ -1,18 +1,13 @@
 package com.bridgeit.objectorientedprograms;
 
-import java.util.Scanner;
+import com.bridgeit.utillity.Util;
 
-public class StockReport 
-{
-	public static void main(String[] args){
-		Scanner sc=new Scanner(System.in);
-		StockUtility su = new StockUtility();
-		int stockNumber;
-		System.out.println("Please Enter No. of Stocks: ");
+public class StockReport {
+	public static void main(String [] args)
+	{
+		Util util=new Util();
+		util.stockReport();
 		
-		stockNumber = sc.nextInt();
-		su.entry(stockNumber);
-		su.calculate();
-		su.totalval();
-}
+	}
+
 }

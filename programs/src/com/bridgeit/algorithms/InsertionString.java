@@ -1,3 +1,12 @@
+/*
+ * @Purpose:Reads in strings from standard input and prints them in sorted order.
+            Uses insertion sort.
+ * @Author:S.Fairoj.
+  
+ * @Date:22/3/2018
+  
+ * */
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;

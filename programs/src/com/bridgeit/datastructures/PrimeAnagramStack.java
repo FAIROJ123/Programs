@@ -1,3 +1,15 @@
+
+
+
+/* 
+ * @Purpose:Add the Prime Numbers that are Anagram in the Range of 0 - 1000 in a Stack using the Linked List and Print the Anagrams in the Reverse Order. Note no Collection Library can be used.
+
+ * @Author:S.Fairoj.
+  
+ * @Date:24/3/2018
+ * */
+
+
 package com.bridgeit.datastructures;
 
 import java.util.LinkedList;

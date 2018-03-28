@@ -1,3 +1,16 @@
+
+
+
+
+
+/* @Purpose:Ordered Node Creation..
+ 
+ * @Author:S.Fairoj.
+  
+ * @Date:24/3/2018
+ * */
+
+
 package com.bridgeit.datastructures;
 
 public class OrderedNode

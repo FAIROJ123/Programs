@@ -1,3 +1,4 @@
+
 package com.bridgeit.functional;
 
 import java.util.Scanner;

@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+/*
+ * @Purpose:find the prime numbers that are Anagram and Palindrome. 
+
+ * @Author:S.Fairoj.
+  
+ * @Date:22/3/2018
+ * 
+ * */
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;

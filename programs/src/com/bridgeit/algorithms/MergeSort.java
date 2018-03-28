@@ -1,3 +1,12 @@
+/*
+ * @Purpose:Write a program with Static Functions to do Merge Sort of list of Strings. 
+
+ * @Author:S.Fairoj.
+  
+ * @Date:22/3/2018
+ 
+ * */
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;

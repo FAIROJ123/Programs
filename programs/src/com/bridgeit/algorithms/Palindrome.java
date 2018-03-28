@@ -1,3 +1,13 @@
+
+
+/* @Purpose:find the prime numbers that are palindrome or not. 
+
+ * @Author:S.Fairoj.
+  
+ * @Date:22/3/2018
+ * */
+
+
 package com.bridgeit.algorithms;
 
 import java.util.Scanner;
