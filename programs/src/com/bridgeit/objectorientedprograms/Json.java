@@ -1,4 +1,4 @@
-/*package com.bridgeit.objectorientedprograms;
+package com.bridgeit.objectorientedprograms;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,11 +16,11 @@ public class Json {
 
 		Scanner sc = new Scanner(System.in);
 		JSONObject obj = new JSONObject();
-		System.out.println("enter the wheet name:");
+		System.out.println("enter the wheat name:");
 		String name = sc.next();
-		System.out.println("enter the wheet cost per kg:");
+		System.out.println("enter the wheat cost per kg:");
 		int cost = sc.nextInt();
-		System.out.println("enter the wheet weight:");
+		System.out.println("enter the wheat weight:");
 		int weight = sc.nextInt();
 		System.out.println("enter the pulses name:");
 		String name1 = sc.next();
@@ -28,11 +28,11 @@ public class Json {
 		int cost1 = sc.nextInt();
 		System.out.println("enter the pulses weight:");
 		int weight1 = sc.nextInt();
-		System.out.println("enter the raice name:");
+		System.out.println("enter the rice name:");
 		String name2 = sc.next();
-		System.out.println("enter the raice cost per kg:");
+		System.out.println("enter the rice cost per kg:");
 		int cost2 = sc.nextInt();
-		System.out.println("enter the raice weight:");
+		System.out.println("enter the rice weight:");
 		int weight2 = sc.nextInt();
 
 		obj.put("name", name);
@@ -67,4 +67,3 @@ public class Json {
 	}
 
 }
-*/

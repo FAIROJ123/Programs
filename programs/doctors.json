@@ -1,0 +1,11 @@
+{
+	"doctor": [
+		{
+			"availabilty": "pm",
+			"apointment": 3,
+			"id": 23,
+			"nameofdoctor": "g",
+			"speciliazation": "b"
+		}
+	]
+}

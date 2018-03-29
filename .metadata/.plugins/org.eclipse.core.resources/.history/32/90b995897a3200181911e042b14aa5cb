@@ -1,0 +1,15 @@
+package com.bridgeit.datastructures;
+
+import com.bridgeit.utillity.Util;
+
+public class PrimeAnagrams2D 
+{
+public static void main(String[] args)
+{
+	Util util=new Util();
+	System.out.println("Program Started ");
+	System.out.println("Anagaram Number");
+	util.dispPrimeAngram( 1000);
+   System.out.println("Program Ended");
+}
+}

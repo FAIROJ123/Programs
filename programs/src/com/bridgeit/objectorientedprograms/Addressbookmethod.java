@@ -22,7 +22,7 @@ public class Addressbookmethod
 	Util utility = new Util();
 
 	public static JSONObject readFromFile(String filename) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Object obj = new JSONParser().parse(new FileReader("/home/bridgeit/Desktop/json.txt"));
+		Object obj = new JSONParser().parse(new FileReader("/home/bridgeit/Desktop/AddressBook.json"));
 		JSONObject jo = (JSONObject) obj;
 		return jo;
 
@@ -31,10 +31,10 @@ public class Addressbookmethod
 	public static void addobject(String filepath) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 		Util utility = new Util();
 
-		JSONObject jsonObject = readFromFile("/home/bridgeit/Desktop/json.txt");
+		JSONObject jsonObject = readFromFile("/home/bridgeit/Desktop/AddressBook.json");
 		JSONArray jsonArray = (JSONArray) jsonObject.get("address");
 		JSONObject jsonObject2 = new JSONObject();
-		Iterator iterator = jsonArray.iterator();
+		//Iterator iterator = jsonArray.iterator();
 		System.out.println("Enter your first name");
 		String name = utility.inputString();
 		System.out.println("Enter your last name");
@@ -59,7 +59,7 @@ public class Addressbookmethod
 		jsonObject2.put("Phonenumber", phonenumber);
 		jsonArray.add(jsonObject2);
 		jsonObject.put("address", jsonArray);
-		PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/json.txt");
+		PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/AddressBook.json");
 		pw.write(jsonObject.toJSONString());
 		pw.flush();
 		pw.close();
@@ -67,7 +67,7 @@ public class Addressbookmethod
 
 	public static void delete(String filepath) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 		Util utility = new Util();
-		JSONObject jsonObject = readFromFile("/home/bridgeit/Desktop/json.txt");
+		JSONObject jsonObject = readFromFile("/home/bridgeit/Desktop/AddressBook.json");
 		JSONArray jsonArray = (JSONArray) jsonObject.get("address");
 		JSONObject jsonObject3 = new JSONObject();
 		Iterator<?> iterator = jsonArray.iterator();
@@ -80,7 +80,7 @@ public class Addressbookmethod
 			if (name.equalsIgnoreCase(person2)) {
 				jsonArray.remove(i);
 				jsonObject.put("address", jsonArray);
-				PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/json.txt");
+				PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/AddressBook.json");
 				pw.write(jsonObject.toJSONString());
 				pw.flush();
 				pw.close();
@@ -91,7 +91,7 @@ public class Addressbookmethod
 
 	public static void display(String filePath) throws IOException, ParseException, org.json.simple.parser.ParseException {
 		Util utility = new Util();
-		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/json.txt");
+		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/AddressBook.json");
 		JSONArray jsonArray = (JSONArray) jsonObject2.get("address");
 		Iterator<?> iterator = jsonArray.iterator();
 		JSONObject jsonObject = new JSONObject();
@@ -118,7 +118,7 @@ public class Addressbookmethod
 	public static void sortbyname(String filename) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
 		Util utility = new Util();
-		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/json.txt");
+		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/AddressBook.json");
 		JSONArray jsonArray = (JSONArray) jsonObject2.get("address");
 		System.out.println("Enter the column to sort the name");
 		String columnname = utility.inputString();
@@ -132,7 +132,7 @@ public class Addressbookmethod
 			System.out.print("Address"+jsonobject2.get("Address"));
 			
 		}
-		PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/json.txt");
+		PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/AddressBook.json");
 		pw.write(jsonArray.toJSONString(jsonArray));
 		pw.flush();
 		pw.close();
@@ -142,7 +142,7 @@ public class Addressbookmethod
 
 	public static void edit(String filePath) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 		Util utility = new Util();
-		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/json.txt");
+		JSONObject jsonObject2 = readFromFile("/home/bridgeit/Desktop/AddressBook.json");
 		JSONArray jsonArray = (JSONArray) jsonObject2.get("address");
 		Iterator<?> iterator = jsonArray.iterator();
 		JSONObject jsonObject = new JSONObject();
@@ -165,7 +165,7 @@ public class Addressbookmethod
 				String value = utility.inputString();
 				jsonObject.put(keyArray[key - 1], value);
 				jsonObject2.put("address", jsonObject);
-				PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/json.txt");
+				PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/AddressBook.json");
 				pw.write(jsonObject2.toJSONString());
 				pw.flush();
 				pw.close();

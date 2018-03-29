@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="82" key="dialogHeight"/>
-		<item value="182" key="dialogWidth"/>
+		<item value="7" key="dialogHeight"/>
+		<item value="98" key="dialogWidth"/>
 		<list key="textEntries">
 			<item value="2"/>
 			<item value="3"/>
+			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.debug.ui.VariableView"/>
+			<item value="org.eclipse.jdt.ui.CompilationUnitEditorprograms/src/com/bridgeit/objectorientedprograms/AddressBook.java"/>
 			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="org.eclipse.debug.ui.VariableView"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
-			<item value="variable"/>
-			<item value="varia"/>
-			<item value="console"/>
+			<item value="src"/>
+			<item value="programs"/>
 			<item value="consol"/>
 			<item value="co"/>
+			<item value="console"/>
+			<item value="variable"/>
+			<item value="varia"/>
 		</list>
 	</section>
 	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
 	</section>
 </section>

@@ -1,5 +1,6 @@
 package com.bridgeit.objectorientedprograms;
 
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,28 +33,28 @@ public class AddressBook
             System.out.println("enter 5 to sort by name");
 			System.out.println("Enter the choice");
 			int choice = utility.inputInteger();
-			utility.inputString();
+			
 			switch (choice) {
 			case 1:
 
-				Addressbookmethod.addobject("/home/bridgeit/Desktop/json.txt");
+				addressbook.addobject("/home/bridgeit/Desktop/AddressBook.json");
 				break;
 
 			case 2:
-				Addressbookmethod.delete("/home/bridgeit/Desktop/json.txt");
+				addressbook.delete("/home/bridgeit/Desktop/AddressBook.json");
 				break;
 
 			case 3:
-				Addressbookmethod.display("/home/bridgeit/Desktop/json.txt");
+				addressbook.display("/home/bridgeit/Desktop/AddressBook.json");
 
 				break;
 
 			case 4:
 				
-				Addressbookmethod.edit("/home/bridgeit/Desktop/json.txt");
+				addressbook.edit("/home/bridgeit/Desktop/AddressBook.json");
 				break;
 			case 5:
-				Addressbookmethod.sortbyname("/home/bridgeit/Desktop/json.txt");
+				addressbook.sortbyname("/home/bridgeit/Desktop/AddressBook.json");
 				break;
 			
 			}

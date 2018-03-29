@@ -1,0 +1,29 @@
+package com.bridgeit.objectorientedprograms;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+import com.bridgeit.utillity.Util;
+
+public class CompanyShares 
+{
+	public static void main(String[] args) throws IOException, ParseException, org.json.simple.parser.ParseException
+	  {
+		Util utility = new Util();
+		
+			boolean check = true;
+		do
+		{
+			
+			System.out.println("Enter 1 to add shares to the file.");
+			System.out.println("Enter 2 to remove share from file");
+			System.out.println("Enter 3 to display Company Shares");
+			
+			int option = utility.inputInteger();
+			
+			switch(option)
+			{
+			case 1:utility.
+}
+}
+	  }

@@ -1,0 +1,11 @@
+package com.bridgeit.objectorientedprograms;
+
+import java.util.ArrayList;
+
+public class CommertialDataProcessing 
+{
+public static void main(String[] args)
+{
+	ArrayList<StockAccount> customerInfo = new ArrayList<StockAccount>();
+}
+}

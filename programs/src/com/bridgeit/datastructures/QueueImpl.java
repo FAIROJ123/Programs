@@ -15,29 +15,20 @@ import java.util.NoSuchElementException;
 public class QueueImpl {
 	Object mOb[];
 	int mRear,mFront,mCpy;
-	/*default constrctor for queue,assign queue size as initiallly 10.**/
-	QueueImpl(){
+	
+	public QueueImpl(){
 		mOb=new Object[10];
 		mRear=mFront=-1;
 		mCpy=5;
 	}
-	/*
-	This int single param constructor is used to initialize the queue capacity based on  
-	* the user requirement.
-	* @param mCpy is the parameter for QueueImpl constructor
-	**/
+	
 	QueueImpl(int mCpy){
 		this.mCpy=mCpy;
 		mRear=mFront=-1;
 		mOb=new Object[mCpy];
 	}
 	
-	/*
-	This method is used add object to the queue.
-	* @param obj is the parameter for the enQueue,
-	* If the queue size is full then Q capacity by default increases by 5
-	* @return boolean, true if object added to queue else false.
-	**/
+	
 	public boolean enQueue(Object obj){
 		if(mRear==-1){
 			mFront++;
@@ -62,11 +53,7 @@ public class QueueImpl {
 			return true;
 		}
 	}
-	/*
-	This method is used remove object from the queue.
-	* It always remove front queue element
-	* @return Object, if the queue is not empty else null.
-	**/	
+	
 	public Object deQueue(){
 		if(mFront==-1){
 			System.out.println("Q is empty");
@@ -89,10 +76,7 @@ public class QueueImpl {
 		}
 		System.out.println();
 	}
-	/*
-	* This method  fetches and display front object from the queue.
-	* @return Object, if the queue is not empty,else null.
-	**/
+	
 	public Object peek(){
 		if(mFront==-1){
 		System.out.println("Q is empty");
@@ -106,13 +90,12 @@ public class QueueImpl {
 	public int getSize(){
 		return mRear-mFront+1;
 	}
-	/*This method checks whether queue is empty or not
-	* @return boolean,true if the queue is empty else false.
-	**/
+	
 	public boolean isEmpty(){
 	if(mRear == -1)
 		return true;
 	else
 		return false;
 }
+	
 }

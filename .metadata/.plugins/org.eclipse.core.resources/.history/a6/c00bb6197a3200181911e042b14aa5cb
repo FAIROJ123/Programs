@@ -1,0 +1,14 @@
+package com.bridgeit.objectorientedprograms;
+
+import com.bridgeit.utillity.Util;
+
+public class StockReport {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("abc");
+/*Util utility=new Util();
+utility.stockReport();*/
+	}
+
+}

@@ -22,7 +22,7 @@ import com.bridgeit.utillity.Util;
 
 public class Extendedprime 
 {
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Exception
 	{
 		Util util=new Util();
 		Scanner sc=new Scanner(System.in);

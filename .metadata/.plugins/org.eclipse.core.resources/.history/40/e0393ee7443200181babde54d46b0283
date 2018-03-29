@@ -1,0 +1,48 @@
+package com.bridgeit.objectorientedprograms;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+import com.bridgeit.utillity.Util;
+
+public class ReggularExpression
+{
+	
+		public  String replaceNameFullname(String Sentence) {
+			Util util = new Util();
+			System.out.println("Enter new name");
+			java.lang.String newname = util.inputString();
+			System.out.println("Enter full name");
+			String fullname = util.inputString();
+			String replacename = Sentence.replaceAll("<<name>>", newname);
+			String replacenamefullname = replacename.replaceAll("<<fullname>>", fullname);
+
+			return replacenamefullname;
+		}
+
+		public static String replaceMobilenumber(String Sentence1) {
+			Util util = new Util();
+			System.out.println("Enter Mobilenumber");
+			String Mobilenumber = util.inputString();
+			String replacemobilenumber = Sentence1.replaceAll("91-xxxxxxxxxx", Mobilenumber);
+
+			return replacemobilenumber;
+		}
+
+		public static String replaceDate(String Sentence2) {
+			Util util = new Util();
+			System.out.println("Enter new date");
+			String newdate = util.inputString();
+			String replacedate = Sentence2.replaceAll("01/01/2016", newdate);
+
+			return replacedate;
+
+		}
+		
+
+}

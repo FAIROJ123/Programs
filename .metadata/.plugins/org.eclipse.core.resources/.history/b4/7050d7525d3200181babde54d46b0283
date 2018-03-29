@@ -1,0 +1,23 @@
+package com.bridgeit.objectorientedprograms;
+
+import com.bridgeit.utillity.Util;
+
+public class StockAccount 
+{
+	Util u = new Util();
+    String name;
+    double balance;
+    int Shares;
+    public StockAccount()
+    {
+    	
+    }
+  
+	public StockAccount(String mName,int mId,String mMobileNo,int mAge){
+	this.name = name;
+	
+
+	
+	
+}
+}
