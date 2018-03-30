@@ -1,0 +1,14 @@
+package com.bridgeit.designpatterns;
+
+public class StaticblockSinglton 
+{
+  private StaticblockSinglton()
+  {
+  }
+  static
+  {
+	  private  static  StaticblockSinglton instance=new StaticblockSinglton();
+	  
+  }
+  
+}

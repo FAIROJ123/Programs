@@ -21,6 +21,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
@@ -2126,5 +2127,24 @@ static public void booleanMatrix() {
 		return jo;
 
 	}
+	
+	
+//Stock Queue.
+	
+	
+	
+	public static java.util.Queue<JSONObject> shareTransaction()
+			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+		
+		Util utility=new Util();
+		Queue<JSONObject> queue = new java.util.LinkedList();
+		JSONObject jsonObject = utility.readFromFilestockaccount("Stockaccount.json");
+		JSONArray stock = (JSONArray) jsonObject.get("stock");
+		for (int i = 0; i < stock.size(); i++) {
+			JSONObject transaction = (JSONObject) stock.get(i);
+			queue.add(transaction);
+		}
+		return queue;
+}
 
 }

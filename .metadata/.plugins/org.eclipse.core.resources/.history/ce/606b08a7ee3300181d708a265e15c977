@@ -1,0 +1,13 @@
+package com.bridgeit.designpatterns;
+
+public class StaticblockSinglton 
+{
+  private StaticblockSinglton()
+  {
+  }
+  static
+  {
+	  
+  }
+  
+}
