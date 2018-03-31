@@ -1,0 +1,5 @@
+package com.bridgeit.behavioralPatterns;
+
+public interface ShoppingCartVisitor {
+
+}

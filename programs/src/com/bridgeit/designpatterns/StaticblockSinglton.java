@@ -1,3 +1,11 @@
+
+
+/*
+ * @Purpose:Static block initialization.
+ *@Author:S.Fairoj
+ * @Date:30/03/2018.
+ * */
+
 package com.bridgeit.designpatterns;
 
 public class StaticblockSinglton {

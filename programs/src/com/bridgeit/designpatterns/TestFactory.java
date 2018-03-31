@@ -1,3 +1,12 @@
+
+/*
+ * @Purpose:
+ * @Autho:
+ * @Date:
+ * */
+
+
+
 package com.bridgeit.designpatterns;
 
 public class TestFactory 

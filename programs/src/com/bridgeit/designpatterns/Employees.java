@@ -1,3 +1,5 @@
+
+
 package com.bridgeit.designpatterns;
 
 import java.awt.List;
@@ -8,10 +10,10 @@ public class Employees implements Cloneable
 private List empList;
 	
 	public Employees(){
-		empList = new ArrayList<String>();
+		empList = new ArrayList();
 	}
 	
-	public Employees(List<String> list){
+	public Employees(List list){
 		this.empList=list;
 	}
 	public void loadData(){
@@ -28,7 +30,7 @@ private List empList;
 
 	@Override
 	public Object clone() throws CloneNotSupportedException{
-			List<String> temp = new ArrayList<String>();
+			List temp = new ArrayList();
 			for(String s : this.getEmpList()){
 				temp.add(s);
 			}

@@ -1,3 +1,11 @@
+
+/*
+ * @Purpose:Serialization and Singleton.
+ * @Author:S.Fairoj
+ * @Date:30/03/2018.
+ * */
+
+
 package com.bridgeit.designpatterns;
 
 import java.io.Serializable;

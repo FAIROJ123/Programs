@@ -1,6 +1,10 @@
 
 
-
+/*
+ * @Purpose:Bill Pugh Singleton Implementation
+ * @Author:S.Fairoj.
+ * @Date:30/03/2017
+ * */
 
 
 
