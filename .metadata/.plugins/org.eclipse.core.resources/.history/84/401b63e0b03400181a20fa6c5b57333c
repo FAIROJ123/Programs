@@ -1,8 +1,0 @@
-package com.bridgeit.designpatterns;
-
-public class Socket 
-{
-	public com.bridgeit.structuralPatterns.Volt getVolt(){
-		return new Volt(120);
-	}
-}

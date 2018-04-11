@@ -27,6 +27,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
 
+import javax.swing.text.html.parser.Parser;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -35,10 +37,8 @@ import org.json.simple.parser.JSONParser;
 import com.bridgeit.datastructures.OrderedNode;
 import com.bridgeit.datastructures.StackImpl;
 import com.bridgeit.functional.Flipcoin;
-import com.bridgeit.functional.Replacestring;
-import com.bridgeit.objectorientedprograms.Sort;
-
-public class Util {
+import com.bridgeit.functional.Replacestring; 
+ public class Util {
 	private Scanner sc;
 	public static final String BinarySearchString = null;
 	private boolean running;
@@ -53,6 +53,34 @@ public class Util {
 	public Util() {
 		br = new BufferedReader(new InputStreamReader(System.in));
 	}
+	
+	public static FileReader fileRead(String string)
+    {
+        FileReader f = null;
+        try {
+            f = new FileReader(string);
+        } catch (FileNotFoundException e) {
+       
+            e.printStackTrace();
+        }
+        return f;   
+    }
+
+//To write into file
+    public static FileWriter fileWrite(String string)
+    {
+        FileWriter f = null;
+        try
+        {
+            f = new FileWriter(string);
+        }
+        catch (IOException e)
+        {
+            //
+            e.printStackTrace();
+        }
+        return f;   
+}
 
 	// input string
 	public String inputString() {
@@ -1510,7 +1538,7 @@ static public void booleanMatrix() {
 			jsonObject3 = (JSONObject) jsonArray.get(i);
 			String name2 = (String) jsonObject3.get("Name");
 			if (name1.equalsIgnoreCase(name2)) {
-				System.out.println("hi");
+				System.out.println("Success");
 				long totalshare = (long) jsonObject3.get("noofshare");
 				String time = (String) jsonObject3.get("time");
 				String date = (String) jsonObject3.get("date");
@@ -1656,8 +1684,7 @@ static public void booleanMatrix() {
 			for (int j = 0; j < 9; j++) {
 				System.out.print(deckOfcard[i][j] + ", ");
 			}
-			System.out.print(
-					"\n----------------------------------------------------------------------------------------------------------------------");
+			System.out.print("\n----------------------------------------------------------------------------------------------------------------------");
 		}
 	}
 
@@ -1669,332 +1696,309 @@ static public void booleanMatrix() {
 	
 	
 
-	public static JSONArray jsonFileReaderfordocpat(String filePath) {
-		File file = new File(filePath);
-		JSONArray jSonArray = null;
-		try {
-			FileReader fileReader = new FileReader(file);
-			JSONParser jSonParser = new JSONParser();
-			jSonArray = new JSONArray();
-			jSonArray = (JSONArray) jSonParser.parse(fileReader);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return jSonArray;
-	}
+	public static void cliniqueManagement() throws IOException, ParseException, org.json.simple.parser.ParseException {
+		Util util=new Util();
+        System.out.println("Welcome to Clinique Management");
+        System.out.println("Press the number, you would like to choose!");
+        System.out.println("1.Add Doctor\n2.Add Patient\n3.Search Doctor\n4.Search Patient\n5.Book Appointment" +
+                "\n6.Show Patient\n7.Show Doctor\n8.Show Appointment\n9.Exit\n");
+        int choice=util.inputInteger();
+        switch (choice) {
+        case 1: addDoctor();
+                break;
+        case 2: addPatient();
+                break;
+        case 3: searchDoctor();
+                break;
+        case 4: searchPatient();
+                break;
+        case 5: bookAppointment();
+                break;
+        case 6: showPatient();
+                break;
+        case 7: showDoctor();
+                break;
+        case 8: showAppointment();
+                break;
+        case 9: 
+            break;
+        }
+    }
+    public static void showAppointment() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+        FileReader fr= util.fileRead("/home/bridgeit/Desktop/Apointment.json");
+        JSONParser parser=new JSONParser();
+        Object doctor=(JSONArray) parser.parse(fr);
+        JSONObject doctorJson=(JSONObject)doctor;
+        JSONArray appArray=(JSONArray)doctorJson.get("doctor");
+        Iterator<?> iterate=appArray.iterator();
+        while (iterate.hasNext()) {
+            JSONObject app=(JSONObject) iterate.next();
+            System.out.println(app);
+        }
+        cliniqueManagement();
+    }
 
-	public static void jsonFileWriter(String filePath, JSONArray jsonArray) {
-		FileWriter fileWriter = null;
+   
+	public static void showDoctor() throws IOException, ParseException, org.json.simple.parser.ParseException {
+		Util util=new Util();
+        FileReader fr= util.fileRead("doctors.json");
+        JSONParser parser=new JSONParser();
+        JSONArray docArray=(JSONArray) parser.parse(fr);
+       
+        Iterator<?> iterate=docArray.iterator();
+        while (iterate.hasNext()) {
+            JSONObject doctor=(JSONObject) iterate.next();
+            System.out.println(doctor);
+        }
+        cliniqueManagement();
+    }
+
+    public static void showPatient() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+        FileReader fr= util.fileRead("/home/bridgeit/workspace/Files/Patient.json");
+        JSONParser parser=new JSONParser();
+        JSONArray patArray=(JSONArray) parser.parse(fr);
+       
+        Iterator<?> iterate=patArray.iterator();
+        while (iterate.hasNext()) {
+            JSONObject patient=(JSONObject) iterate.next();
+            System.out.println(patient);
+        }
+        cliniqueManagement();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void addDoctor() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+        FileReader fr= util.fileRead("doctors.json");
+        JSONParser parser=new JSONParser();
+        JSONArray docArray=(JSONArray) parser.parse(fr);
+        JSONObject doctor=new JSONObject();
+        System.out.println("Enter doctor name:");
+        String dname=util.inputString();
+        System.out.println("Enter doctor id:");
+        String did=util.inputString();
+        System.out.println("Enter doctor specialization:");
+        String dspecial=util.inputString();
+        System.out.println("Enter doctor Availability time:");
+        String davailable=util.inputString();
+        System.out.println("Enter doctor Availability date:");
+        String date=util.inputString();
+        
+        doctor.put("Name", dname);
+        doctor.put("ID", did);
+        doctor.put("Specialize",dspecial);
+        doctor.put("Available", davailable);
+        doctor.put("Count", 0);
+        doctor.put("Date", date);
+        docArray.add(doctor);
+        System.out.println("Doctor is Added Sucessfully");
+       
+        System.out.println(doctor);
+        //writing to file
+        FileWriter fw=util.fileWrite("doctors.json");
+         fw.write(JSONValue.toJSONString(docArray));
+         fw.flush();
+         fw.close();
+        cliniqueManagement();
+    }
+   
+  
+
+	@SuppressWarnings("unchecked")
+    public static void addPatient() throws IOException, ParseException, org.json.simple.parser.ParseException {
+		Util util=new Util();
+        FileReader fr= util.fileRead("/home/bridgeit/Desktop/patient.json");
+        JSONParser parser=new JSONParser();
+        JSONArray patArray=(JSONArray) parser.parse(fr);
+        JSONObject patient=new JSONObject();
+       
+        System.out.println("Enter patient name:");
+        String pname=util.inputString();
+        System.out.println("Enter patient id:");
+        String pid=util.inputString();
+        System.out.println("Enter patient mobile number:");
+        String mobile=util.inputString();
+        System.out.println("Enter patient age");
+        String age=util.inputString();
+        
+        patient.put("Name", pname);
+        patient.put("ID", pid);
+        patient.put("Mobile", mobile);
+        patient.put("Age", age);
+        patArray.add(patient);
+        System.out.println("Patient is Added Sucessfully");
+       
+        System.out.println(patient);
+        //writing to file
+        FileWriter fw=fileWrite("/home/bridgeit/Desktop/patient.json");
+         fw.write(JSONValue.toJSONString(patArray));
+         fw.flush();
+         fw.close();
+         
+        cliniqueManagement();
+       
+    }
+    public static void searchDoctor() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+        FileReader fr= fileRead("doctors.json");
+        JSONParser parser=new JSONParser();
+        JSONArray docArray=(JSONArray) parser.parse(fr);
+       
+        System.out.println("Search doctor either by ID/Specialization/Name/Availablility");
+        System.out.println("Enter the field name you want to search in:");
+        String field=util.inputString();
+        System.out.println("Enter the value for selected field");
+        String value=util.inputString();
+        Iterator<?> iterator=docArray.iterator();
+        while (iterator.hasNext()) {
+            JSONObject object = (JSONObject) iterator.next();
+                if(value.equals(object.get(field)))
+                {
+                    System.out.println(object);
+                }
+        }
+        cliniqueManagement();
+    }
+
+    public static void searchPatient() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+        FileReader fr= fileRead("/home/bridgeit/Desktop/patient.json");
+        JSONParser parser=new JSONParser();
+        JSONArray patArray=(JSONArray) parser.parse(fr);
+       
+        System.out.println("Search Patient either by ID/Age/Name/Mobile");
+        System.out.println("Enter the field name you want to search in:");
+        String field=util.inputString();
+        System.out.println("Enter the value for selected field:");
+        String value=util.inputString();
+       
+        Iterator<?> iterator=patArray.iterator();
+        while (iterator.hasNext()) {
+            JSONObject object = (JSONObject) iterator.next();
+                if(value.equals(object.get(field)))
+                {
+                    System.out.println(object);
+                }
+        }
+        cliniqueManagement();
+    }
+    @SuppressWarnings("unchecked")
+    public static void bookAppointment() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    	Util util=new Util();
+    	JSONParser parser=new JSONParser();
+        //Doctor
+        FileReader docfile= util.fileRead("doctors.json");
+        JSONArray docArray=(JSONArray) parser.parse(docfile);
+        JSONObject doctor = null;
+       
+        //Patient
+        FileReader patfile= fileRead("/home/bridgeit/Desktop/patient.json");
+        JSONArray patArray=(JSONArray) parser.parse(patfile);
+        //Appointment
+        FileReader appointfile= fileRead("/home/bridgeit/Desktop/Apointment.json");
+        JSONArray appointArray=(JSONArray) parser.parse(appointfile);
+        JSONObject appoint=new JSONObject();
+       
+        System.out.println("Enter Patient ID:");
+        String pid=util.inputString();
+       
+        System.out.println("Enter the Appointment Date:");
+        String date=util.inputString();
+        
+        Iterator<?> iterator=patArray.iterator();
+        while(iterator.hasNext())
+        {
+            JSONObject patient=(JSONObject) iterator.next();
+            if(pid.equals(patient.get("ID")))
+            {
+                System.out.println("Enter the doctor name:");
+                String dname=util.inputString();
+                Iterator<?> iterator2=docArray.iterator();
+                while(iterator2.hasNext())
+                {
+                    doctor=(JSONObject) iterator2.next();
+                    if(dname.equals(doctor.get("Name")))
+                    {
+                    	if(date.equals(doctor.get("Date")))
+                    	{
+                    		int dcount=Integer.parseInt(doctor.get("Count").toString());
+                    		if(dcount<5)
+                    		{
+                    			appoint.put("PID", pid);
+                    			appoint.put("DName", dname);
+                    			appoint.put("ADate", date);
+                    			appointArray.add(appoint);
+                    			System.out.println(appoint);
+                    	   
+                    			dcount++;
+                    			doctor.remove("Count");
+                    			doctor.put("Count", dcount);
+                    			System.out.println(doctor);
+                    			
+                    			FileWriter appointwrite=fileWrite("/home/bridgeit/Desktop/Apointment.json");
+                    	        appointwrite.write(JSONValue.toJSONString(appointArray));
+                    	        appointwrite.flush();
+                    	        appointwrite.close();
+                    	       
+                    	        FileWriter doctorwrite=fileWrite("doctors.json");
+                    	        doctorwrite.write(JSONValue.toJSONString(docArray));
+                    	        doctorwrite.flush();
+                    	        doctorwrite.close();
+                    		}
+                    		else
+                    		{
+                    			System.out.println("Doctor is not avaiable! Please Add In tomorrow");
+                    		}
+                    	}
+                    	else
+                    	{
+                    		System.out.println("Doctor is not avaliable on this date!");
+                    	}
+                    }
+                }
+            }
+        }
+        
+        cliniqueManagement();
+    }
+
+
+	
+	
+
+   
+
+	
+	
+	
+
+	
+
+	
+//CompanyShares
+    
+    
+    
+    
+    public static void jsonFileWriter(String filePath, JSONArray jsonArray) {
+		FileWriter fileWriter=null;
 		try {
-			fileWriter = new FileWriter(filePath);
+			fileWriter=new FileWriter(filePath);
 			fileWriter.write(JSONValue.toJSONString(jsonArray));
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		}
+		finally {
 			try {
 				fileWriter.flush();
 				fileWriter.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-	}
-
-	public static void addPatient(String filepath) 
-			throws IOException, ParseException, org.json.simple.parser.ParseException ,StackOverflowError{
-		Util utility = new Util();
-		JSONObject jsonObjectPatient = readFromFilePatient("/home/bridgeit/Desktop/patient.json");
-		JSONArray jsonArrayforPatient = (JSONArray) jsonObjectPatient.get("patient");
-		JSONObject jsonObjectStorePatient = new JSONObject();
-		System.out.println("Enter your patient name");
-		String name = utility.inputString();
-		System.out.println("Enter your patient id");
-		int id = utility.inputInteger();
-		
-		System.out.println("Enter the mobile number");
-		String mobilenumber = utility.inputString();
-		System.out.println("enter the age");
-		int age = utility.inputInteger();
-		jsonObjectStorePatient.put("nameofpatient", name);
-		jsonObjectStorePatient.put("id", id);
-		jsonObjectStorePatient.put("mobilenumber", mobilenumber);
-		jsonObjectStorePatient.put("age", age);
-		jsonArrayforPatient.add(jsonObjectStorePatient);
-		jsonObjectPatient.put("patient", jsonArrayforPatient);
-		PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/patient.json");
-		pw.write(jsonObjectPatient.toJSONString());
-		pw.flush();
-		pw.close();
-
-	}
-	public static void addDoctor(String filename)
-			throws IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		JSONObject jsonObjectDoctor = readFromFileDoctor("doctors.json");
-		JSONArray jsonArray = (JSONArray) jsonObjectDoctor.get("doctor");
-		JSONObject jsonObjectStoreDoctor = new JSONObject();
-		System.out.println("Enter your doctor name");
-		String name = utility.inputString();
-
-		System.out.println("Enter your doctor id");
-		int id = utility.inputInteger();
-		utility.inputString();
-		System.out.println("Enter the apointment");
-		int apointment = utility.inputInteger();
-		System.out.println("Enter the availabilty");
-		String availabilty = utility.inputString();
-		System.out.println("enter the speciliazation");
-		String speciliazation = utility.inputString();
-		jsonObjectStoreDoctor.put("nameofdoctor", name);
-		jsonObjectStoreDoctor.put("id", id);
-		jsonObjectStoreDoctor.put("apointment", apointment);
-		jsonObjectStoreDoctor.put("availabilty", availabilty);
-		jsonObjectStoreDoctor.put("speciliazation", speciliazation);
-		jsonArray.add(jsonObjectStoreDoctor);
-		jsonObjectDoctor.put("doctor", jsonArray);
-		PrintWriter pw = new PrintWriter("doctors.json");
-		pw.write(jsonObjectDoctor.toJSONString());
-		pw.flush();
-		pw.close();
-
-	}
-
-	public static void searchdoctor(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		JSONObject jsonObjectDoctor = readFromFileDoctor("doctors.json");
-		JSONArray jsonArray = (JSONArray) jsonObjectDoctor.get("doctor");
-		JSONObject jsonNewObject = new JSONObject();
-		System.out.println("Enter your doctor name");
-		String name = utility.inputString();
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonSearchObject = new JSONObject();
-		boolean check = true;
-		while (iterator.hasNext()) {
-			jsonSearchObject = (JSONObject) iterator.next();
-			if (name.equalsIgnoreCase((String) jsonSearchObject.get("nameofdoctor"))) {
-				System.out.print(" Doctor name :" + jsonSearchObject.get("nameofdoctor"));
-				System.out.print("Id  :" + jsonSearchObject.get("id"));
-				System.out.println("apointment:" + jsonSearchObject.get("apointment"));
-				System.out.print("availibility :" + jsonSearchObject.get("availabilty"));
-				System.out.println("Specialization :" + jsonSearchObject.get("speciliaz"));
-				check = false;
-				break;
-
-			}
-		}
-		if (check) {
-			System.out.println("Doctor not found");
-		}
-	}
-
-	public static JSONObject readFromFileDoctor(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Object obj = new JSONParser().parse(new FileReader("doctors.json"));
-		JSONObject jo = (JSONObject) obj;
-		return jo;
-
-	}
-
-	public static JSONObject readFromFilePatient(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Object obj = new JSONParser().parse(new FileReader("/home/bridgeit/Desktop/patient.json"));
-		JSONObject jo = (JSONObject) obj;
-		return jo;
-
-	}
-
-	public static void searchPatient(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		JSONObject jsonObjectPatient = readFromFilePatient("/home/bridgeit/Desktop/patient.json");
-		JSONArray jsonArray = (JSONArray) jsonObjectPatient.get("patient");
-		System.out.println("Enter your patient name");
-		String name = utility.inputString();
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject newJsonObjectSearch = new JSONObject();
-		boolean check = true;
-		while (iterator.hasNext()) {
-			newJsonObjectSearch = (JSONObject) iterator.next();
-			if (name.equalsIgnoreCase((String) newJsonObjectSearch.get("nameofpatient"))) {
-				System.out.print(" patient name :" + newJsonObjectSearch.get("nameofpatient"));
-				System.out.print("Id  :" + newJsonObjectSearch.get("id"));
-				System.out.println("mobilenumber :" + newJsonObjectSearch.get("mobilenumber"));
-				System.out.println("age :" + newJsonObjectSearch.get("age"));
-				check = false;
-				break;
-
-			}
-		}
-		if (check) {
-			System.out.println("Patient not found");
-		}
-	}
-
-	public static void takeAppointment(String fileForPatients, String fileAddress)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-
-		JSONObject jsonObject = readFromFile1("/home/bridgeit/Desktop/patient.json");
-		JSONArray jsonArray = (JSONArray) jsonObject.get("patient");
-		JSONObject jsonObject2 = new JSONObject();
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject3 = readFromFile("doctors.json");
-		JSONArray jsonArray1 = (JSONArray) jsonObject.get("doctor");
-		JSONObject jsonObject4 = new JSONObject();
-		Iterator<?> iterator1 = jsonArray1.iterator();
-		System.out.println("Please Enter the Name of Pesient ");
-		String name = utility.inputString();
-		System.out.println("Please Enter the name of Doctore ");
-		String doctorname = utility.inputString();
-		boolean check = false;
-		while (iterator.hasNext()) {
-			jsonObject2 = (JSONObject) iterator.next();
-			if (name.equalsIgnoreCase((String) jsonObject2.get("name"))) {
-				while (iterator1.hasNext()) {
-					jsonObject4 = (JSONObject) iterator1.next();
-
-					JSONArray jsonArray3 = (JSONArray) jsonObject.get("/home/bridgeit/Desktop/patient.json");
-					if (doctorname.equalsIgnoreCase((String) jsonObject.get("nameofdoctor"))) {
-						if (jsonArray3.size() < 5) {
-							jsonArray3.add(jsonObject2);
-							System.out.println("Appointment done.");
-							check = true;
-							break;
-						} else {
-							System.out.println("Apointment is Full");
-						}
-					}
-				}
-				if (check) {
-					System.out.println("DOctor is available");
-					break;
-				} else if (!check) {
-					System.out.println("Invailid doctor name.");
-				}
-			}
-		}
-	}
-
-	public static JSONObject readFromFile1(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Object obj = new JSONParser().parse(new FileReader("doctors.json"));
-		JSONObject jo = (JSONObject) obj;
-		return jo;
-
-	}
-
-	
-	
-
-	public static JSONObject readFromFileApointment(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Object obj = new JSONParser().parse(new FileReader("/home/bridgeit/Desktop/Apointment.json"));
-		JSONObject jo = (JSONObject) obj;
-		return jo;
-
-	}
-
-	public static void searchDOctorByName(String doctorname, JSONObject patients)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		
-		JSONObject doctor = null;
-		boolean doctorpresent = false;
-		JSONObject jsonObjectDOctor = readFromFileDoctor("doctors.json");
-		JSONArray jsonArraydoctor = (JSONArray) jsonObjectDOctor.get("doctor");
-		for (int i = 0; i < jsonArraydoctor.size(); i++) {
-			JSONObject jsonObjectdoctor = (JSONObject) jsonArraydoctor.get(i);
-			System.out.println(jsonObjectdoctor);
-			String name = (String) jsonObjectdoctor.get("nameofdoctor");
-			System.out.println(name);
-			if (name.equals(doctorname)) {
-				System.out.println("hi");
-				JSONObject jsonObject = readFromFileApointment("/home/bridgeit/Desktop/Apointment.json");
-				JSONArray jsonArrayforapointment = (JSONArray) jsonObject.get("apointment");
-				JSONObject jsonObjectapointment = new JSONObject();
-				Long id = (Long) patients.get("id");
-				jsonObjectapointment.put("patientid", id);
-				jsonObjectapointment.put("doctorname", name);
-				jsonArrayforapointment.add(jsonObjectapointment);
-				jsonObject.put("apointment", jsonArrayforapointment);
-				PrintWriter pw = new PrintWriter("/home/bridgeit/Desktop/Apointment.json");
-				pw.write(jsonObject.toJSONString());
-				pw.flush();
-				pw.close();
-			} else {
-				System.out.println("doctor is not present");
-			}
-		}
-
-	}
-
-	public static void searchPatientbyId(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		JSONObject jsonObject = readFromFilePatient("/home/bridgeit/Desktop/patient.json");
-		JSONArray jsonArray = (JSONArray) jsonObject.get("patient");
-		JSONObject jsonObject2 = new JSONObject();
-		System.out.println("Enter your patient id");
-		int id = utility.inputInteger();
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject3 = new JSONObject();
-		boolean check = true;
-		while (iterator.hasNext()) {
-			jsonObject3 = (JSONObject) iterator.next();
-			if (id == (Long) jsonObject3.get("id")) {
-				System.out.print(" patient name :" + jsonObject3.get("nameofpatient"));
-				System.out.print("Id  :" + jsonObject3.get("id"));
-				System.out.println("mobilenumber :" + jsonObject3.get("mobilenumber"));
-				System.out.println("age :" + jsonObject3.get("age"));
-				check = false;
-				break;
-
-			}
-		}
-		if (check) {
-			System.out.println("Patient not found");
-		}
-	}
-
-	public static void searchdoctorbyId(String filename)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		JSONObject jsonObject = readFromFileDoctor("doctors.json");
-		JSONArray jsonArray = (JSONArray) jsonObject.get("doctor");
-		JSONObject jsonObject2 = new JSONObject();
-		System.out.println("Enter your doctor id");
-		int id = utility.inputInteger();
-		Iterator<?> iterator = jsonArray.iterator();
-		JSONObject jsonObject3 = new JSONObject();
-		boolean check = true;
-		while (iterator.hasNext()) {
-			jsonObject3 = (JSONObject) iterator.next();
-			if (id == (Long) jsonObject3.get("id")) {
-				System.out.print(" Doctor name :" + jsonObject3.get("nameofdoctor"));
-				System.out.print("Id  :" + jsonObject3.get("id"));
-				System.out.println("apointment:" + jsonObject3.get("apointment"));
-				System.out.print("availibility :" + jsonObject3.get("availabilty"));
-				System.out.println("Specialization :" + jsonObject3.get("speciliazation"));
-				check = false;
-				break;
-
-			}
-		}
-		if (check) {
-			System.out.println("Doctor not found");
-		}
-	}
-
-	public static void searchAndbookdoctor(JSONObject patients)
-			throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		System.out.println("Enter doctor name");
-		String doctorname = (String) utility.inputString();
-		utility.searchDOctorByName(doctorname, patients);
-	}
-
-	
-//CompanyShares
+}
+    }
 	
 	
 	public  static  JSONArray jsonFileReader(String filePath)  {
@@ -2076,7 +2080,7 @@ static public void booleanMatrix() {
 		Util utility=new Util();
 		JSONArray jsonArray=new JSONArray();
 		jsonArray=utility.jsonFileReader(filePath);
-		Iterator<?> iterator=jsonArray.iterator();
+		Iterator iterator=jsonArray.iterator();
 		JSONObject jsonObject=new JSONObject();
 		boolean check=true;
 		System.out.println("Enter the company name : ");
@@ -2146,5 +2150,9 @@ static public void booleanMatrix() {
 		}
 		return queue;
 }
+
+	
+
+	
 
 }

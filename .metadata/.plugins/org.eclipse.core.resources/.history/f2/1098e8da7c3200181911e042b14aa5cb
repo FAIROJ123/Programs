@@ -1,9 +1,0 @@
-package com.bridgeit.objectorientedprograms;
-
-public class StockReport {
-	public static void main(String [] args)
-	{
-		System.out.println("Hello");
-	}
-
-}

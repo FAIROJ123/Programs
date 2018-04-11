@@ -1,9 +1,0 @@
-package com.bridgeit.designpatterns;
-
-public class BillPughSingleton 
-{
- private  BillPughSingleton ()
- {
-	 
- }
-}

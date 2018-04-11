@@ -1,5 +1,0 @@
-package com.bridgeit.behavioralPatterns;
-
-public interface ItemElement {
-
-}

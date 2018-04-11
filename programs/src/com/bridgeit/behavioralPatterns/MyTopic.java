@@ -1,10 +1,11 @@
 package com.bridgeit.behavioralPatterns;
 
-import java.awt.List;
+import java.util.List;
+import java.util.ArrayList;
 
-public class MyTopic implements Subject
-{
-	private List observers;
+public class MyTopic implements Subject {
+
+	private List<Observer> observers;
 	private String message;
 	private boolean changed;
 	private final Object MUTEX= new Object();
@@ -12,7 +13,6 @@ public class MyTopic implements Subject
 	public MyTopic(){
 		this.observers=new ArrayList<>();
 	}
-	@Override
 	public void register(Observer obj) {
 		if(obj == null) throw new NullPointerException("Null Observer");
 		synchronized (MUTEX) {
@@ -20,7 +20,6 @@ public class MyTopic implements Subject
 		}
 	}
 
-	@Override
 	public void unregister(Observer obj) {
 		synchronized (MUTEX) {
 		observers.remove(obj);
@@ -29,7 +28,7 @@ public class MyTopic implements Subject
 
 	@Override
 	public void notifyObservers() {
-		List observersLocal = null;
+		List<Observer> observersLocal = null;
 		//synchronization is used to make sure any observer registered after message is received is not notified
 		synchronized (MUTEX) {
 			if (!changed)
@@ -54,5 +53,25 @@ public class MyTopic implements Subject
 		this.message=msg;
 		this.changed=true;
 		notifyObservers();
+	}
+	@Override
+	public void register(java.util.Observer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void unregister(java.util.Observer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Object getUpdate(java.util.Observer obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdate(MyTopicSubscriber obj) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

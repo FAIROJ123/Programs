@@ -1,3 +1,5 @@
+
+
 package com.bridgeit.behavioralPatterns;
 
 public class ShoppingCartClient

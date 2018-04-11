@@ -3,7 +3,7 @@
 /*
  * @Purpose:xtend the above program to Create InventoryManager to manage the Inventory. The Inventory Manager will use InventoryFactory to create Inventory Object from JSON. The InventoryManager will call each Inventory Object in its list to calculate the Inventory Price and then call the Inventory Object to return the JSON String. The main program will be with InventoryManager
  * @Author:S.Fairoj
- * @Date:28/13/2018
+ * @Date:28/03/2018
  * */
 
 package com.bridgeit.objectorientedprograms;

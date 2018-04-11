@@ -71,7 +71,7 @@ public class BinaryTreeMethods
 public void getTreeCount(int number){
 		int num = number;
 		long result = count(num);
-		System.out.println("Total Combinatios Possible: "+result);
+		System.out.println("Total Combinations Possible: "+result);
 	}
 
 	public static long count(int num){

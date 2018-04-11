@@ -4,7 +4,7 @@
 /*
  * @Purpose:Further maintain the Stock Symbol Purchased or Sold in a Stack implemented using Linked List to indicate transactions done.
  * @Author:S.Fairoj
- * @Date:29/13/2018
+ * @Date:29/03/2018
  * */
 
 

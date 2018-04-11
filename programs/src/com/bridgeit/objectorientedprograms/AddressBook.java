@@ -1,73 +1,184 @@
-
-/*
- * @Purpose:Create Object Oriented Analysis and Design of a simple Address Book Problem.
- * @Author:S.Fairoj
- * @Date:30/13/2018
- * */
-
-
 package com.bridgeit.objectorientedprograms;
 
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Set;
-import java.lang.String;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
 import org.json.simple.parser.JSONParser;
 
 import com.bridgeit.utillity.Util;
 
-public class AddressBook
-
+public class AddressBook 
 {
+	Scanner sc=new Scanner(System.in);
+	String firstName, lastName, city, state, zip, phone;
+	ArrayList<Person> list=new ArrayList<Person>();
+	JSONParser parser=new JSONParser();
+	public void operation() {
+		
+		boolean status=true;
+		do{
+		System.out.println("Choose Operation you want to do");
+		System.out.println("1. Add\t2. Edit\t3. sort\t4. delete\t5. Exit");
+		switch (sc.nextInt()) {
+		case 1: add();
+				break;
+		case 2: edit();
+				break;
+		case 3:sort();
+		       break;
+		case 4:
+			System.out.println("enter the person firstName:");
+			firstName = sc.next();
+			deleteByfirstname(firstName);
+			System.out.println("Successfully deleted");
+			System.out.println(list);
+		       break;
+		
+		case 5:	status=false;
+				break;
+		}
+		}
+		while(status);
+	}
+		Util util=new Util();
+	public void add()
+	{
+		System.out.println("enter the person firstname");
+		firstName = sc.next();
+		System.out.println("enter the person lastName:");
+		lastName = sc.next();
+		System.out.println("enter the person city:");
+		city = sc.next();
+		System.out.println("enter the person state:");
+		state = sc.next();
+		System.out.println("enter the person zip:");
+		zip = sc.next();
+		System.out.println("enter the person phone number:");
+		phone = sc.next();
+		list.add(new Person(firstName, lastName, city, state, zip, phone));
+		System.out.println(list);
+		System.out.println("Successfully added");
+		System.out.println("\nThere are " + list.size() + " people in this address book.\n");
+	}
+	public void deleteByfirstname(String firstName) {
+		
+		for (Iterator<Person> iterator = list.iterator(); iterator.hasNext();) {
+			Person temp = (Person) iterator.next();
 
-	 public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
-		Util utility = new Util();
-		System.out.println("Enter any positive number");
-		int choice1 = utility.inputInteger();
-       Addressbookmethod addressbook = new Addressbookmethod();
-		while (choice1 > 0) {
-            System.out.println("enter 1 to add addressbook to the file");
-            System.out.println("enter 2 to delete the share from the file");
-            System.out.println("enter 3 to display number of account");
-            System.out.println("enter 4 to edit number of account");
-            System.out.println("enter 5 to sort by name");
-			System.out.println("Enter the choice");
-			int choice = utility.inputInteger();
+			if (temp.getfirstName().equalsIgnoreCase(firstName)) {
+				iterator.remove();
+				return;
+			}
+			System.out.println("successfully deleted");
+			
+		}
+
+		System.out.println("No contact with first name " + firstName + " was found.");
+	}
+	public void edit() {
+		System.out.println("enter your firstname:");
+		String fname = util.inputString();
+		
+		for (Iterator<Person> iterator = list.iterator(); iterator.hasNext();)
+		{
+		
+			Person temp = (Person) iterator.next();
+
+		if (fname.equalsIgnoreCase(temp.getfirstName())) {
+
+			System.out.println("1.state");
+			System.out.println("2.city");
+			System.out.println("3.zip");
+			System.out.println("4.phonenumber");
+			System.out.println("enter your choice which do you want to edit:");
+			int choice = util.inputInteger();
 			
 			switch (choice) {
+
 			case 1:
 
-				addressbook.addobject("/home/bridgeit/Desktop/AddressBook.json");
-				break;
-
-			case 2:
-				addressbook.delete("/home/bridgeit/Desktop/AddressBook.json");
-				break;
-
-			case 3:
-				addressbook.display("/home/bridgeit/Desktop/AddressBook.json");
-
-				break;
-
-			case 4:
+				System.out.println("enter your new state");
+				String state = util.inputString();
+				temp.setstate(state);
 				
-				addressbook.edit("/home/bridgeit/Desktop/AddressBook.json");
 				break;
-			case 5:
-				addressbook.sortbyname("/home/bridgeit/Desktop/AddressBook.json");
-				break;
-			
+				
+			case 2:
+				 System.out.println("enter your new city");
+				 String city=util.inputString();
+				 temp.setcity(city);
+				
+				 break;
+				
+				 
+			case 3:
+				
+				 System.out.println("enter your new zip");
+				 String zip=util.inputString();
+				 temp.setzip(zip);
+				 
+				 break;
+				 
+			case 4:
+				 System.out.println("enter your new phonenumber");
+				 String phone=util.inputString();
+				 temp.setzip(phone);
+				 
+				 break;
+				 
+		   default:
+			    System.out.println("wrong choice");
+			    break;
+
 			}
+			
+			System.out.println("Successfully edited");
+			
+           System.out.println(list);
+		}
+			
+		}
+		
+		}
+ public void sort()
+ {
+	 System.out.println("1.Sorting based on FirstName");
+		System.out.println("2.Sorting based on Zip code");
+		System.out.println("Enter which do you want:");
+		int choice=sc.nextInt();
+		switch(choice)
+		{
+		case 1:
+			FirstNameSorter fs=new FirstNameSorter();
+			Collections.sort(list);
+	        
+			break;
+			
+		case 2:
+			
+			Collections.sort(list);
+		}
+		
+
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
 
 		}
+		System.out.println();
+
+	
+	
+
+}
+public ArrayList<Person> list() {
+	// TODO Auto-generated method stub
+	return list;
 }
 
+
+ 
 }

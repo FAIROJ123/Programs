@@ -2,15 +2,17 @@
 
 package com.bridgeit.designpatterns;
 
-import java.awt.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Employees implements Cloneable
 {
-private List empList;
+private List<String> empList;
 	
 	public Employees(){
-		empList = new ArrayList();
+		empList = new ArrayList<String>();
+				
 	}
 	
 	public Employees(List list){
@@ -24,13 +26,13 @@ private List empList;
 		empList.add("Lisa");
 	}
 	
-	public List getEmpList() {
+	public List<String> getEmpList() {
 		return empList;
 	}
 
 	@Override
 	public Object clone() throws CloneNotSupportedException{
-			List temp = new ArrayList();
+			List<String> temp = new ArrayList<String>();
 			for(String s : this.getEmpList()){
 				temp.add(s);
 			}

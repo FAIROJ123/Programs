@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="305" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="7" key="dialogHeight"/>
 		<item value="98" key="dialogWidth"/>
@@ -9,22 +13,22 @@
 			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.jdt.ui.CompilationUnitEditorprograms/src/com/bridgeit/objectorientedprograms/AddressBook.java"/>
 			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="org.eclipse.jdt.ui.CompilationUnitEditorprograms/src/com/bridgeit/objectorientedprograms/AddressBook.java"/>
 			<item value="org.eclipse.debug.ui.VariableView"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
-			<item value="src"/>
-			<item value="programs"/>
-			<item value="programs/src/"/>
 			<item value="consol"/>
 			<item value="co"/>
 			<item value="console"/>
+			<item value="src"/>
+			<item value="programs"/>
+			<item value="programs/src/"/>
 			<item value="variable"/>
 			<item value="varia"/>
 		</list>
@@ -32,5 +36,7 @@
 	<section name="NewWizardAction">
 	</section>
 	<section name="ImportExportAction">
+	</section>
+	<section name="ZipFileImportWizard">
 	</section>
 </section>

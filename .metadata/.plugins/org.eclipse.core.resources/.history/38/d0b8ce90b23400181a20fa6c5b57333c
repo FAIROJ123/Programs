@@ -1,5 +1,0 @@
-package com.bridgeit.designpatterns;
-
-public interface Observer {
-
-}

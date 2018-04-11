@@ -3,7 +3,7 @@
 /*
  * @Purpose:Commercial data processing - StockAccount.java implements a data type that might be used by a financial institution to keep track of customer information. The StockAccount class implements following methods
  * @Author:S.Fairoj
- * @Date:28/13/2018
+ * @Date:28/03/2018
  * */
 
 
@@ -22,7 +22,7 @@ public class ComertialData {
 			Util utility = new Util();
 			System.out.println("Enter any positive number");
 			int choice1 = utility.inputInteger();
-			utility.inputString();
+			//utility.inputString();
 			while (choice1 > 0) {
 				System.out.println("enter 1 to add share details to the file");
 				System.out.println("enter 2 to delete the share from the file");
