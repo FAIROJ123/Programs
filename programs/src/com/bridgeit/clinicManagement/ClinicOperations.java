@@ -1,3 +1,14 @@
+
+/*
+ * @Purpose:Clinic Management.
+ * @Author:S.Fairoj
+ * @Date:14/4/2018.
+ * */
+
+
+
+
+
 package com.bridgeit.clinicManagement;
 
 import java.io.IOException;
