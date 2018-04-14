@@ -1,6 +1,8 @@
 package com.bridgeit.objectorientedprograms;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -16,8 +18,9 @@ public class AddressBook
 	Scanner sc=new Scanner(System.in);
 	String firstName, lastName, city, state, zip, phone;
 	ArrayList<Person> list=new ArrayList<Person>();
+	
 	JSONParser parser=new JSONParser();
-	public void operation() {
+	public void operation() throws IOException {
 		
 		boolean status=true;
 		do{
@@ -45,8 +48,10 @@ public class AddressBook
 		while(status);
 	}
 		Util util=new Util();
-	public void add()
+		
+	public void add() throws IOException
 	{
+		
 		System.out.println("enter the person firstname");
 		firstName = sc.next();
 		System.out.println("enter the person lastName:");
@@ -63,6 +68,9 @@ public class AddressBook
 		System.out.println(list);
 		System.out.println("Successfully added");
 		System.out.println("\nThere are " + list.size() + " people in this address book.\n");
+		
+	    System.out.println("save the file");
+		
 	}
 	public void deleteByfirstname(String firstName) {
 		
@@ -79,9 +87,10 @@ public class AddressBook
 
 		System.out.println("No contact with first name " + firstName + " was found.");
 	}
-	public void edit() {
+	public void edit() throws IOException {
 		System.out.println("enter your firstname:");
 		String fname = util.inputString();
+		Scanner sc=new Scanner(System.in);
 		
 		for (Iterator<Person> iterator = list.iterator(); iterator.hasNext();)
 		{
@@ -139,6 +148,15 @@ public class AddressBook
 			System.out.println("Successfully edited");
 			
            System.out.println(list);
+          
+           
+           System.out.println("you added new data:type true if yes or type false");
+          boolean flag=sc.nextBoolean();
+   		if(flag)
+   		{
+   			System.out.println("save the file");
+   			
+   		}
 		}
 			
 		}
@@ -153,14 +171,14 @@ public class AddressBook
 		switch(choice)
 		{
 		case 1:
-			FirstNameSorter fs=new FirstNameSorter();
-			Collections.sort(list);
-	        
-			break;
 			
+			
+			Collections.sort(list, new SortbyLastName());
+	        break;
 		case 2:
 			
-			Collections.sort(list);
+		Collections.sort(list,new ZipSorter());
+			break;
 		}
 		
 

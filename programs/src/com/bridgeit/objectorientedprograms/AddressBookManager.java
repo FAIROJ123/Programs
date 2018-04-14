@@ -22,9 +22,8 @@ public class AddressBookManager {
 	File file;
 	static Scanner s = new Scanner(System.in);
 
-	public void create() {
+	public void create() throws IOException {
 
-		
 		System.out.println("Give a name to your new address book:");
 		file = new File("/home/bridgeit/Desktop/" + s.next() + ".Json");
 		try {
@@ -70,24 +69,28 @@ public class AddressBookManager {
 	public void save() throws IOException {
 		ArrayList<Person> arrayList = new ArrayList<Person>();
 		arrayList = addressbook.list();
+		try {
 
-		objectMapper.writeValue(file, arrayList);
-		System.out.println("Your file is Successfully saved");
+			objectMapper.writeValue(file, arrayList);
+			System.out.println("Your file is Successfully saved");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void saveAs() {
-		System.out.println("enter your oldfile name:");
-		String filename = "/home/bridgeit/Desktop/" + s.next() + ".Json";
-		System.out.println("enter your newfile name:");
-		String newfilename = "/home/bridgeit/Desktop/" + s.next() + ".Json";
-		File oldfile = new File(filename);
-		File newfile = new File(newfilename);
-		if (oldfile.renameTo(newfile)) {
-			System.out.println("Your file is renamed");
-		} else {
-			System.out.println("File renamed failed");
-		}
+		System.out.println("enter your new file name:");
+		File filename =new File( "/home/bridgeit/Desktop/" + s.next() + ".json");
 
+		ArrayList<Person> arrayList = new ArrayList<Person>();
+		arrayList = addressbook.list();
+		try {
+
+			objectMapper.writeValue(filename, arrayList);
+			System.out.println("Your file is Successfully saved");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void quit() {

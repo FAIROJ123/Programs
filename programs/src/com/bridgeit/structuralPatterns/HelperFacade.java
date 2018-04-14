@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 public class HelperFacade 
 {
-	public static final String ReportTypes = null;
+	//public static final String ReportTypes = null;
 
 	public static void generateReport(DBTypes dbType, ReportTypes reportType, String tableName){
 		Connection con = null;

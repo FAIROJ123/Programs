@@ -4,21 +4,29 @@
 		<item value="305" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="EditorSelectionDialog">
+		<item value="false" key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL"/>
+		<item value=".html" key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION"/>
+		<item value="org.springsource.ide.eclipse.commons.browser.Editor" key="EditorSelectionDialog.STORE_ID_DESCR"/>
+	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="7" key="dialogHeight"/>
 		<item value="98" key="dialogWidth"/>
 		<list key="textEntries">
 			<item value="3"/>
+			<item value="1"/>
 			<item value="3"/>
 			<item value="2"/>
 		</list>
 		<list key="orderedElements">
 			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="search.in.help"/>
 			<item value="org.eclipse.jdt.ui.CompilationUnitEditorprograms/src/com/bridgeit/objectorientedprograms/AddressBook.java"/>
 			<item value="org.eclipse.debug.ui.VariableView"/>
 		</list>
 		<list key="orderedProviders">
 			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.actions"/>
 			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
@@ -26,6 +34,7 @@
 			<item value="consol"/>
 			<item value="co"/>
 			<item value="console"/>
+			<item value="projectexplorer"/>
 			<item value="src"/>
 			<item value="programs"/>
 			<item value="programs/src/"/>
@@ -34,6 +43,10 @@
 		</list>
 	</section>
 	<section name="NewWizardAction">
+		<item value="org.eclipse.wst.html.ui.internal.wizard.NewHTMLWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
 	</section>
 	<section name="ImportExportAction">
 	</section>

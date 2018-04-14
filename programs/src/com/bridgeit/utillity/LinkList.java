@@ -2,6 +2,7 @@ package com.bridgeit.utillity;
 
 import javax.xml.soap.Node;
 
+
 public class LinkList 
 {
 	Node head;
@@ -37,5 +38,9 @@ public void display()
 		temp=temp.next;
 }
 }
+
+
+
+
 }
-   
+ 
