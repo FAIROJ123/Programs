@@ -74,6 +74,7 @@ public class AddressBookManager {
 
 			d.open(file);
 		}
+		
 	}
 
 	public void save() throws IOException {

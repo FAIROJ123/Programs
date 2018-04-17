@@ -6,15 +6,12 @@ import com.bridgeit.utillity.Util;
 import java.lang.String;
 public class PatientsInfo 
 {
-	
-	
     public String mName;
 	public String mMobileNo;
     public int mId;
 	public int mAge;
     public String mDocsName;
   
-	
 	
 	public PatientsInfo(String mName,int mId,String mMobileNo,int mAge){
 	this.mName = mName;
