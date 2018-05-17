@@ -14,26 +14,20 @@
 		<item value="98" key="dialogWidth"/>
 		<list key="textEntries">
 			<item value="3"/>
-			<item value="3"/>
 			<item value="2"/>
 		</list>
 		<list key="orderedElements">
 			<item value="org.eclipse.ui.console.ConsoleView"/>
-			<item value="org.eclipse.jdt.ui.CompilationUnitEditorprograms/src/com/bridgeit/objectorientedprograms/AddressBook.java"/>
 			<item value="org.eclipse.debug.ui.VariableView"/>
 		</list>
 		<list key="orderedProviders">
 			<item value="org.eclipse.e4.ui.parts"/>
-			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
 			<item value="consol"/>
 			<item value="co"/>
 			<item value="console"/>
-			<item value="src"/>
-			<item value="programs"/>
-			<item value="programs/src/"/>
 			<item value="variable"/>
 			<item value="varia"/>
 		</list>

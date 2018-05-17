@@ -462,7 +462,7 @@ public class ClinicManagement {
 						//Incrementing the date by 1 day
 						c.add(Calendar.DAY_OF_MONTH, 1);  
 						String newDate = sdf.format(c.getTime());  
-						System.out.println("Date Incremented by One: "+newDate);
+						System.out.println("Book the appointment for next day: "+newDate);
 						patient = addPatient();
 						doctor.setNoofpatients(doctor.getNoofpatients()+1);
 						objectMapper.writeValue(file, list);
@@ -472,7 +472,12 @@ public class ClinicManagement {
 						objectMapper.writeValue(appoinmentFile, list2);
 					   
 					}
+				  
 				}
+				else
+				  {
+					  System.out.println("Doctor is not available on this date");
+				  }
 			
 			}	
 		
