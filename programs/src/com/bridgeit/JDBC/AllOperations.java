@@ -2,10 +2,13 @@ package com.bridgeit.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+
+
 
 public class AllOperations {
 
@@ -28,7 +31,9 @@ public class AllOperations {
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					con = DriverManager.getConnection(databaseUrl, user, password);
-					java.sql.PreparedStatement ps = con.prepareStatement("insert into friends values(?,?,?)");
+					PreparedStatement ps = con.prepareStatement("insert into friends values(?,?,?)");
+					while(true)
+					{
 					System.out.println("enter employee name:");
 					String name = sc.next();
 					System.out.println("enter employee designation:");
@@ -41,6 +46,13 @@ public class AllOperations {
 					int i = ps.executeUpdate();
 
 					System.out.println(i + "Records successfully added into the table");
+					System.out.println("Do you want to add the another record:[yes/No]");
+					String option=sc.next();
+					if(option.equalsIgnoreCase("No"))
+					{
+						break;
+					}
+					}
 
 				} catch (ClassNotFoundException ex) {
 					System.out.println("Database driver class is not found");
@@ -80,7 +92,7 @@ public class AllOperations {
 					case 1:
 						System.out.println("enter the friend name to delete");
 						String name = sc.next();
-						java.sql.PreparedStatement ps = con1.prepareStatement("delete from friends where name=?");
+						PreparedStatement ps = con1.prepareStatement("delete from friends where name=?");
 						ps.setString(1, name);
 						int r = ps.executeUpdate();
 						System.out.println(r + "deleted from the record");
@@ -126,7 +138,7 @@ public class AllOperations {
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					con2 = DriverManager.getConnection(databaseUrl2, user2, password2);
-					java.sql.PreparedStatement ps = con2
+					PreparedStatement ps = con2
 							.prepareStatement("update friends set designation=? where name=?");
 					System.out.println("enter friend name to update designaiton:");
 					String name = sc.next();
@@ -166,7 +178,7 @@ public class AllOperations {
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					con3 = DriverManager.getConnection(databaseUrl3, user3, password3);
-					java.sql.PreparedStatement ps = con3.prepareStatement("select * from friends");
+					PreparedStatement ps = con3.prepareStatement("select * from friends");
 					ResultSet rs = ps.executeQuery();
 					while (rs.next()) {
 						String fname = rs.getString(1);
@@ -178,7 +190,7 @@ public class AllOperations {
 
 					System.out.println("enter friend name to select infornmation:");
 					String name = sc.next();
-					java.sql.PreparedStatement pre = con3.prepareStatement("select * from friends where name=?");
+					PreparedStatement pre = con3.prepareStatement("select * from friends where name=?");
 					pre.setString(1, name);
 					ResultSet r = pre.executeQuery();
 					while (r.next()) {

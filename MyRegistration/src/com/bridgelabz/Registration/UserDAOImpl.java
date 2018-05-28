@@ -44,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
 			while(rs.next()) {
 				u.setUsername(rs.getString("userName"));
 				u.setPassword(rs.getString("password"));
-     			u.setName(rs.getString("name"));
+      			u.setName(rs.getString("name"));
 				
 				System.out.println("UserName : "+u.getUsername());
 				System.out.println("Password : "+u.getPassword());

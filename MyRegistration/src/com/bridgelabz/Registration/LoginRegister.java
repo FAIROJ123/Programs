@@ -6,8 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/loginRegister")
+// @WebServlet("/loginRegister")
 public class LoginRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -15,7 +16,7 @@ public class LoginRegister extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public LoginRegister() {
-        super();
+       
         
     }
 
@@ -36,8 +37,10 @@ public class LoginRegister extends HttpServlet {
 		
 		if(submit.equals("login")&& u!=null && u.getName()!=null)
 		{
-			request.setAttribute("message", u.getName());
-			request.getRequestDispatcher("welcome.jsp").forward(request, response);
+			HttpSession session =  request.getSession();
+			session.setAttribute("message", u.getUsername());
+			response.sendRedirect("welcome.jsp");
+			
 		}
 		else if(submit.equals("register"))
 		{
@@ -45,15 +48,29 @@ public class LoginRegister extends HttpServlet {
 			u.setUsername(request.getParameter("username"));
 			u.setPassword(request.getParameter("password"));
 			u.setPhonenumber(request.getParameter("phoneNumber"));
-			ud.insertUserData(u);
-			request.setAttribute("SuccessMessage", "Registration is Done!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			if((!u.getName().equals("")) && (!u.getPassword().equals("")) && (!u.getUsername().equals("")) && (!u.getPhonenumber().equals("")))
+			{
+				ud.insertUserData(u);
+				request.setAttribute("SuccessMessage", "Registration is Done!");
+				response.sendRedirect("login.jsp");
+			}
+			else {
+				request.setAttribute("SuccessMessage", "Required all feilds...!!!");
+				request.getRequestDispatcher("register.jsp").forward(request, response);
+			}
+			
 			
 		}
 		else {
-			request.setAttribute("ErrorMessage", "Data is Not Found,Click on Registation!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			
+			
+			request.setAttribute("ErrorMessage", "Invalid username or password..!");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			
+		
 		}
+		
+	
 		
 	}
 		

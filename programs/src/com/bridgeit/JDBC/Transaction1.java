@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Transaction1 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		String databaseUrl="jdbc:mysql://localhost:3306/emp_Records";
 		String user="root";
 		String password="Bridgeit@1";
@@ -43,6 +43,7 @@ public class Transaction1 {
 				}
 				catch(SQLException ex){
 					ex.printStackTrace();
+					con.rollback();
 				}
 				
 			}

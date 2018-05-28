@@ -5,11 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="Javascript/login.js"></script>
 </head>
 <body>
-	<form action="loginRegister" method="post">
-		<table
-			style="background-color: pink; margin-left: 20px; margin-left: 20px;">
+	<form name="myform"  action="loginRegister" method="post"  >
+		<table 
+			style="background-color: gray; margin-left: 400px;">
 
 			<tr>
 				<td><h3 style="color:red;">${ErrorMessage }</h3>
@@ -20,15 +21,15 @@
 			</tr>
 			<tr>
 				<td>UserName:</td>
-				<td><input type="text" name="name"></td>
+				<td><input type="text" name="name" ></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="password"></td>
+				<td><input type="password" name="password" ></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="submit" value="login"
-					style="color: green"></td>
+					style="color: green" onclick=" return loginvalidation();"></td>
 				<td><a href="register.jsp">Registration</a></td>
 			</tr>
 

@@ -7,16 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="loginRegister">
+<%
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+
+if(session.getAttribute("message")==null)
+{
+	response.sendRedirect("login.jsp");
+}
+else {
+%>
 	
-		<table
-			style="background-color: gray; margin-left: 20px; margin-left: 20px;">
-			<tr>
-			<td><h1>Hi ${message} Welcome to my Page</h1></td>
-			</tr>
-			<tr>
-			<td><input type="button" name="button" value="LogOut" >
-			</table>
-			</form>
+
+		<h3>Hi ${message} </h3>
+		<h3>Welcome to my Page</h3>
+		<h3>If you want to Logout click on This Link</h3>
+		
+		<form action="Logout" method="post">
+		<input type="submit" value="Logout"></input>
+		</form>
+		
+
+		
+
+	
+	<%} %>
 </body>
 </html>
